@@ -9,24 +9,30 @@ const NavBar = () => {
     const [logo, setLogo] = useState('greyLogo')
 
     return (
-        <div>
-            {/* logo */}
-            <Link to='/'>
-                <img
-                    onMouseOver={() => setLogo('greenLogo')}
-                    className={`logo ${logo === 'greenLogo' && 'd-none'}`} src={greyLogo} alt=''></img>
-            </Link>
+        <div className='navbar'>
+            <div>
+                {/* logo */}
+                <Link to='/'>
+                    <img
+                        onMouseOver={() => setLogo('greenLogo')}
+                        className={`logo ${logo === 'greenLogo' && 'd-none'}`} src={greyLogo} alt=''></img>
+                </Link>
 
+                {/* green logo */}
+                <Link to='/'>
+                    <img
+                        onMouseLeave={() => setLogo('logo')}
+                        className={`logo ${logo !== 'greenLogo' && 'd-none'}`} src={greenLogo} alt=''></img>
+                </Link>
+            </div>
 
-            {/* green logo */}
-            <Link to='/'>
-                <img
-                    onMouseLeave={() => setLogo('logo')}
-                    className={`logo ${logo !== 'greenLogo' && 'd-none'}`} src={greenLogo} alt=''></img>
-            </Link>
-
-
-
+            <div className='view-menu'>
+                <h3>View Menu</h3>
+                <div className='lines'>
+                    <div className='line'></div>
+                    <div className='line second-line'></div>
+                </div>
+            </div>
         </div>
     );
 };

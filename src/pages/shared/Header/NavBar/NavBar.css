@@ -1,3 +1,40 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 200px;
+}
+
 .logo {
     height: 100px;
+}
+
+.view-menu {
+    color: #464646;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 1.1rem;
+    width: 250px;
+}
+
+.view-menu:hover {
+    cursor: pointer;
+}
+
+.line {
+    height: 2px;
+    width: 100px;
+    border: 2px solid rgb(70, 70, 70);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    transition: 0.4s;
+}
+
+.second-line {
+    margin-top: 8px;
+}
+
+.view-menu:hover .second-line {
+    width: 50px;
 }

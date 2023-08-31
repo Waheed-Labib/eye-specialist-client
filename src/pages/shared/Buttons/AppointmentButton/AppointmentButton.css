@@ -1,0 +1,12 @@
+.appointment-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: green;
+    color: white;
+    font-size: 1.3rem;
+    width: 200px;
+    height: 75px;
+    rotate: -90deg;
+}
