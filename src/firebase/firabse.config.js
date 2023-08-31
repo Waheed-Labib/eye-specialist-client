@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.apiKey,
-    authDomain: process.env.authDomain,
-    projectId: process.env.projectId,
-    storageBucket: process.env.storageBucket,
-    messagingSenderId: process.env.messagingSenderId,
-    appId: process.env.appId
+    apiKey: "AIzaSyDLMKOAFAIBCq4g0m2Wnl57HRj0rSFu6sk",
+    authDomain: "eye-specialist-client.firebaseapp.com",
+    projectId: "eye-specialist-client",
+    storageBucket: "eye-specialist-client.appspot.com",
+    messagingSenderId: "536810520208",
+    appId: "1:536810520208:web:ce15d93b8b103175c2a215"
 };
 
 // Initialize Firebase
