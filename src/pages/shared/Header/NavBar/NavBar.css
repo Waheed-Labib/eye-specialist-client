@@ -9,16 +9,26 @@
 }
 
 .view-menu {
-    color: #464646;
+    color: rgb(70, 70, 70);
     display: flex;
     align-items: center;
     gap: 24px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     width: 250px;
 }
 
 .view-menu:hover {
     cursor: pointer;
+}
+
+.close {
+    color: rgb(200, 200, 200);
+    transition: 0.5s;
+}
+
+.lines {
+    position: relative;
 }
 
 .line {
@@ -37,4 +47,22 @@
 
 .view-menu:hover .second-line {
     width: 50px;
+}
+
+.view-menu:hover .close {
+    color: rgb(70, 70, 70);
+}
+
+.rotate-line {
+    width: 50px;
+}
+
+.rotate-first-line {
+    transform: rotate(45deg);
+}
+
+.rotate-second-line {
+    position: absolute;
+    bottom: 0;
+    transform: rotate(-45deg);
 }

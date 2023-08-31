@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
 
     const [logo, setLogo] = useState('greyLogo')
+    const [menuOpen, setMenuOpen] = useState(false)
 
     return (
         <div className='navbar'>
@@ -26,12 +27,56 @@ const NavBar = () => {
                 </Link>
             </div>
 
-            <div className='view-menu'>
-                <h3>View Menu</h3>
+            <div
+                onClick={() => setMenuOpen(!menuOpen)}
+                className='view-menu'>
+
+                <p className={`${menuOpen && 'd-none'}`}>View Menu</p>
+                <p className={`close ${!menuOpen && 'd-none'}`}>Close</p>
+
                 <div className='lines'>
-                    <div className='line'></div>
-                    <div className='line second-line'></div>
+                    <div className={`line ${menuOpen && 'rotate-line rotate-first-line'}`}></div>
+                    <div className={`line second-line ${menuOpen && 'rotate-line rotate-second-line'}`}></div>
                 </div>
+
+                <div className='navbar-options'>
+                    <div>
+
+                    </div>
+
+                    <div>
+
+                    </div>
+
+                    <div>
+
+                    </div>
+
+                    <div>
+
+                    </div>
+
+                    <div>
+
+                    </div>
+
+                    <div>
+
+                    </div>
+
+                    <div>
+
+                    </div>
+
+                    <div>
+
+                    </div>
+
+                    <div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     );
