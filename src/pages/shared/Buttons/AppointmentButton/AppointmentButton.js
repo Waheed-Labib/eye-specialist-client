@@ -4,7 +4,7 @@ import './AppointmentButton.css'
 
 const AppointmentButton = () => {
     return (
-        <div className='appointment-btn absolute-element'>
+        <div className='appointment-btn fixed-top-right'>
             <h4>Call now</h4>
             <FaPhoneAlt></FaPhoneAlt>
         </div>

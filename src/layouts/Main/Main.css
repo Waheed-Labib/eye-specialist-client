@@ -2,9 +2,3 @@
     padding: 1%;
     position: relative;
 }
-
-.absolute-element {
-    position: absolute;
-    right: 0;
-    top: 1;
-}

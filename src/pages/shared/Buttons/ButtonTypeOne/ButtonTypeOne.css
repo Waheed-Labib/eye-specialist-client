@@ -1,0 +1,15 @@
+.button-one {
+    width: 200px;
+    background-color: yellowgreen;
+    color: green;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.4s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.button-one:hover {
+    cursor: pointer;
+    background-color: rgb(169, 253, 3);
+}
