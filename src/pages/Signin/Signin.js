@@ -1,14 +1,47 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Signin.css';
 import eyeCheckUp from '../../assets/images/sign in/eye-check-up-vector.jpg'
 import { Link } from 'react-router-dom';
-import ButtonTypeOne from '../shared/Buttons/ButtonTypeOne/ButtonTypeOne';
 import ButtonTypeTwo from '../shared/Buttons/ButtonTypeTwo/ButtonTypeTwo';
 import { FaArrowRight } from 'react-icons/fa';
+import SubmitButton from '../shared/Buttons/ButtonTypeOne/SubmitButton';
+import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Signin = () => {
 
+    const {
+        user,
+        loading,
+        setUser,
+        signIn,
+        resetPassword,
+        facebookSignIn
+
+    } = useContext(AuthContext)
+
     const handleSignIn = event => {
+
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                setUser(result.user)
+                toast.success(
+                    <p className='toast toast-success'>Hello, {user.displayName} !</p>
+                )
+
+                form.reset()
+            })
+            .catch(err => toast.error(
+                <p className='toast toast-error'>{err.message}</p>
+            ))
+
 
     }
 
@@ -21,10 +54,10 @@ const Signin = () => {
                 <p className='stylish-yellow-heading'>Sign in to your Account</p>
 
                 <form className='sign-in-sign-up-form' onSubmit={handleSignIn}>
-                    <input type='email' placeholder='   Email' required></input>
-                    <input type='password' placeholder='   Password' required></input>
+                    <input type='email' placeholder='Email' name='email' required></input>
+                    <input type='password' placeholder='Password' name='password' required></input>
 
-                    <ButtonTypeOne text={'Sign In'}></ButtonTypeOne>
+                    <SubmitButton type='submit' text={'Sign In'}></SubmitButton>
                 </form>
 
                 <Link className='yellow-link'>Forgot Password?</Link>

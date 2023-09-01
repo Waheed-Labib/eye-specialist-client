@@ -1,4 +1,4 @@
-.button-one {
+.submit-button {
     width: 200px;
     background-color: yellowgreen;
     color: green;
@@ -7,9 +7,10 @@
     transition: 0.4s;
     margin-top: 10px;
     margin-bottom: 10px;
+    border: none;
 }
 
-.button-one:hover {
+.submit-button:hover {
     cursor: pointer;
     background-color: rgb(169, 253, 3);
 }
