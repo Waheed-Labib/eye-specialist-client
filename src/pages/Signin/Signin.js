@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Signin.css';
 import eyeCheckUp from '../../assets/images/sign in/eye-check-up-vector.jpg'
 import { Link } from 'react-router-dom';
@@ -41,8 +41,30 @@ const Signin = () => {
             .catch(err => toast.error(
                 <p className='toast toast-error'>{err.message}</p>
             ))
+    }
 
+    const [email, setEmail] = useState('')
 
+    const handleForgotPassword = () => {
+        if (email) {
+            resetPassword(email)
+                .then(() => {
+                    toast.success(
+                        <p className='toast toast-success'>Password Reset Link is sent to your Email </p>
+                    )
+                })
+                .catch(err => toast.error(
+                    <p className='toast toast-error'>
+                        {err.message}
+                    </p>
+                ))
+        }
+
+        else {
+            toast.error(
+                <p className='toast toast-error'>Please Fill the Email Field first.</p>
+            )
+        }
     }
 
     return (
@@ -54,13 +76,13 @@ const Signin = () => {
                 <p className='stylish-yellow-heading'>Sign in to your Account</p>
 
                 <form className='sign-in-sign-up-form' onSubmit={handleSignIn}>
-                    <input type='email' placeholder='Email' name='email' required></input>
+                    <input onChange={event => setEmail(event.target.value)} type='email' placeholder='Email' name='email' required></input>
                     <input type='password' placeholder='Password' name='password' required></input>
 
                     <SubmitButton type='submit' text={'Sign In'}></SubmitButton>
                 </form>
 
-                <Link className='yellow-link'>Forgot Password?</Link>
+                <Link onClick={handleForgotPassword} className='yellow-link'>Forgot Password?</Link>
 
                 {/* ------OR-------- */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
