@@ -66,3 +66,29 @@
     bottom: 0;
     transform: rotate(-45deg);
 }
+
+@media screen and (max-width:768px) {
+    .navbar {
+        padding-right: 0;
+    }
+
+    .view-menu {
+        width: 100px;
+    }
+
+    .line {
+        width: 60px;
+    }
+
+    .view-menu:hover .second-line {
+        width: 30px;
+    }
+
+    .rotate-line {
+        width: 30px;
+    }
+
+    .view-menu-text {
+        display: none;
+    }
+}

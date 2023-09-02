@@ -31,8 +31,8 @@ const NavBar = () => {
                 onClick={() => setMenuOpen(!menuOpen)}
                 className='view-menu'>
 
-                <p className={`${menuOpen && 'd-none'}`}>View Menu</p>
-                <p className={`close ${!menuOpen && 'd-none'}`}>Close</p>
+                <p className={`view-menu-text ${menuOpen && 'd-none'}`}>View Menu</p>
+                <p className={`view-menu-text close ${!menuOpen && 'd-none'}`}>Close</p>
 
                 <div className='lines'>
                     <div className={`line ${menuOpen && 'rotate-line rotate-first-line'}`}></div>

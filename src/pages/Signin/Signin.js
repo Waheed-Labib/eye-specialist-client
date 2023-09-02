@@ -2,11 +2,11 @@ import React, { useContext, useState } from 'react';
 import './Signin.css';
 import eyeCheckUp from '../../assets/images/sign in/eye-check-up-vector.jpg'
 import { Link } from 'react-router-dom';
-import ButtonTypeTwo from '../shared/Buttons/ButtonTypeTwo/ButtonTypeTwo';
 import { FaArrowRight } from 'react-icons/fa';
-import SubmitButton from '../shared/Buttons/ButtonTypeOne/SubmitButton';
+import SubmitButton from '../shared/Buttons/SubmitButton/SubmitButton';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
+import FacebookButton from '../shared/Buttons/FacebookButton/FacebookButton';
 
 const Signin = () => {
 
@@ -73,7 +73,7 @@ const Signin = () => {
             <img src={eyeCheckUp} alt=''></img>
 
             <div className='sign-in-sign-up'>
-                <p className='stylish-yellow-heading'>Sign in to your Account</p>
+                <p style={{ marginTop: '30px', marginBottom: '50px' }} className='stylish-yellow-heading'>Sign in to your Account</p>
 
                 <form className='sign-in-sign-up-form' onSubmit={handleSignIn}>
                     <input onChange={event => setEmail(event.target.value)} type='email' placeholder='Email' name='email' required></input>
@@ -92,7 +92,7 @@ const Signin = () => {
                 </div>
 
 
-                <ButtonTypeTwo text={'Sign in with Facebook'}></ButtonTypeTwo>
+                <FacebookButton></FacebookButton>
 
                 {/* toggle to sign in */}
                 <Link to='/create-account' className='white-link'>

@@ -1,4 +1,4 @@
-.button-two {
+.facebook-button {
     width: 200px;
     background-color: rgb(3, 90, 3);
     color: yellow;
@@ -13,11 +13,11 @@
     border-radius: 8px;
 }
 
-.button-two p {
+.facebook-button p {
     margin: 0;
 }
 
-.button-two:hover {
+.facebook-button:hover {
     cursor: pointer;
     background-color: rgb(17, 62, 17);
 }

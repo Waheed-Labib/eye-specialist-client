@@ -8,9 +8,11 @@ import AppointmentButton from '../../pages/shared/Buttons/AppointmentButton/Appo
 const Main = () => {
     return (
         <div className='main'>
-            <Header></Header>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <div className='main-body'>
+                <Header></Header>
+                <Outlet></Outlet>
+                <Footer></Footer>
+            </div>
             <AppointmentButton></AppointmentButton>
         </div>
     );

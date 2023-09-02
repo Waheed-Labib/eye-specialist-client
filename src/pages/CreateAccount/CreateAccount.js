@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import './CreateAccount.css'
 import eyeCheckUp from '../../assets/images/sign in/eye-check-up-vector.jpg'
 import { Link } from 'react-router-dom';
-import ButtonTypeTwo from '../shared/Buttons/ButtonTypeTwo/ButtonTypeTwo';
 import { FaArrowRight, FaRegSmileBeam } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
-import SubmitButton from '../shared/Buttons/ButtonTypeOne/SubmitButton';
+import SubmitButton from '../shared/Buttons/SubmitButton/SubmitButton';
+import FacebookButton from '../shared/Buttons/FacebookButton/FacebookButton';
 
 const CreateAccount = () => {
 
@@ -62,10 +62,6 @@ const CreateAccount = () => {
             ))
     }
 
-    const handleFacebookSignIn = event => {
-
-    }
-
     return (
         <div className='sign-in-sign-up-page'>
 
@@ -103,7 +99,7 @@ const CreateAccount = () => {
                 </div>
 
 
-                <ButtonTypeTwo onClick={handleFacebookSignIn} text={'Sign in with Facebook'}></ButtonTypeTwo>
+                <FacebookButton></FacebookButton>
 
                 {/* toggle to sign in */}
                 <Link to='/signin' className='white-link'>

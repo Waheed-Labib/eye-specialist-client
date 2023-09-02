@@ -79,3 +79,44 @@
 .rotate-icon {
     transform: rotate(45deg);
 }
+
+@media screen and (max-width:1054px) {
+    .sign-in-sign-up-form input {
+        width: 90%;
+    }
+
+    .name-inputs {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .name-inputs {
+        padding-left: 20px;
+        width: 99.5%;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .sign-in-sign-up-page img {
+        display: none;
+    }
+
+    .sign-in-sign-up {
+        width: 100%;
+    }
+
+    .sign-in-sign-up-form input {
+        width: 95%;
+    }
+
+    .name-inputs {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .name-inputs {
+        padding-left: 8px;
+        width: 99.5%;
+    }
+}
