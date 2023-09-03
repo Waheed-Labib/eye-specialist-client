@@ -1,4 +1,8 @@
-.facebook-button {
+.google-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     width: 200px;
     background-color: rgb(3, 90, 3);
     color: yellow;
@@ -8,16 +12,17 @@
     transition: 0.4s;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-inline: 8px;
     border-radius: 8px;
 }
 
-.facebook-button p {
+.google-button p {
     margin: 0;
 }
 
-.facebook-button:hover {
+.google-button:hover {
     cursor: pointer;
     background-color: rgb(17, 62, 17);
 }

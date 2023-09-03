@@ -14,3 +14,9 @@
     cursor: pointer;
     background-color: rgb(169, 253, 3);
 }
+
+@media screen and (max-width:1054px) {
+    .shortWidthButton {
+        width: 170px;
+    }
+}

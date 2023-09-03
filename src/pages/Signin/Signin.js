@@ -6,7 +6,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import SubmitButton from '../shared/Buttons/SubmitButton/SubmitButton';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
-import FacebookButton from '../shared/Buttons/FacebookButton/FacebookButton';
+import GoogleButton from '../shared/Buttons/GoogleButton/GoogleButton';
 
 const Signin = () => {
 
@@ -15,8 +15,7 @@ const Signin = () => {
         loading,
         setUser,
         signIn,
-        resetPassword,
-        facebookSignIn
+        resetPassword
 
     } = useContext(AuthContext)
 
@@ -73,16 +72,16 @@ const Signin = () => {
             <img src={eyeCheckUp} alt=''></img>
 
             <div className='sign-in-sign-up'>
-                <p style={{ marginTop: '30px', marginBottom: '50px' }} className='stylish-yellow-heading'>Sign in to your Account</p>
+                <p style={{ marginTop: '30px', marginBottom: '60px' }} className='stylish-yellow-heading'>Sign in to your Account</p>
 
                 <form className='sign-in-sign-up-form' onSubmit={handleSignIn}>
-                    <input onChange={event => setEmail(event.target.value)} type='email' placeholder='Email' name='email' required></input>
-                    <input type='password' placeholder='Password' name='password' required></input>
+                    <input style={{ width: '190px' }} onChange={event => setEmail(event.target.value)} type='email' placeholder='Email' name='email' required></input>
+                    <input style={{ width: '190px' }} type='password' placeholder='Password' name='password' required></input>
 
                     <SubmitButton type='submit' text={'Sign In'}></SubmitButton>
                 </form>
 
-                <Link onClick={handleForgotPassword} className='yellow-link'>Forgot Password?</Link>
+                <Link style={{ marginBottom: '5px', marginTop: '5px' }} onClick={handleForgotPassword} className='yellow-link'>Forgot Password?</Link>
 
                 {/* ------OR-------- */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
@@ -92,7 +91,7 @@ const Signin = () => {
                 </div>
 
 
-                <FacebookButton></FacebookButton>
+                <GoogleButton></GoogleButton>
 
                 {/* toggle to sign in */}
                 <Link to='/create-account' className='white-link'>

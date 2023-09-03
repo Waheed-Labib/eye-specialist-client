@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
-import './FacebookButton.css'
+import './GoogleButton.css'
 import { AuthContext } from '../../../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { FaGoogle } from 'react-icons/fa'
 
-const FacebookButton = () => {
+const GoogleButton = () => {
 
-    const { user, setUser, loading, facebookSignIn } = useContext(AuthContext)
+    const { user, setUser, loading, googleSignIn } = useContext(AuthContext)
 
-    const handleFacebookSignin = () => {
-        facebookSignIn()
+    const handleGoogleSignin = () => {
+        googleSignIn()
             .then(result => {
                 const user = result.user;
                 setUser(user)
                 toast.success(
                     <div className='toast toast-success'>
-                        <p>Hello, ${user?.displayName}</p>
-                        <p>Facebook Authentication Successful</p>
+                        <p>Hello, {user?.displayName}</p>
+                        <p>Successfully signed in with Google</p>
                     </div>
                 )
             })
@@ -27,10 +28,11 @@ const FacebookButton = () => {
     }
 
     return (
-        <div onClick={handleFacebookSignin} className='facebook-button'>
-            <p>Sign in with Facebook</p>
+        <div onClick={handleGoogleSignin} className='google-button'>
+            <FaGoogle></FaGoogle>
+            <p>Sign in with Google</p>
         </div>
     );
 };
 
-export default FacebookButton;
+export default GoogleButton;
