@@ -2,23 +2,39 @@
     display: flex;
     justify-content: space-between;
     padding-right: 200px;
+    position: relative;
 }
 
 .logo {
     height: 100px;
 }
 
-.view-menu {
+.menu {
+    background-color: white;
+    height: 100vh;
+    overflow-y: scroll;
     color: rgb(70, 70, 70);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 50%;
+    padding-top: 1%;
+}
+
+.menu::-webkit-scrollbar {
+    opacity: 0;
+}
+
+.view-menu {
     display: flex;
     align-items: center;
     gap: 24px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    width: 250px;
 }
 
-.view-menu:hover {
+.menu:hover {
     cursor: pointer;
 }
 
@@ -29,6 +45,7 @@
 
 .lines {
     position: relative;
+    margin-bottom: 10px;
 }
 
 .line {
@@ -45,11 +62,11 @@
     margin-top: 8px;
 }
 
-.view-menu:hover .second-line {
+.menu:hover .second-line {
     width: 50px;
 }
 
-.view-menu:hover .close {
+.menu:hover .close {
     color: rgb(70, 70, 70);
 }
 
@@ -67,20 +84,57 @@
     transform: rotate(-45deg);
 }
 
+.menu-links {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.user-id {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-option {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: rgb(29, 29, 29);
+}
+
+.menu-option:hover p {
+    color: green;
+}
+
+.menu-icon {
+    font-size: 1.5rem;
+}
+
 @media screen and (max-width:768px) {
     .navbar {
         padding-right: 0;
     }
 
-    .view-menu {
-        width: 100px;
+    .hide-logo-section {
+        display: none;
+    }
+
+    .menu {
+        padding-top: 10%;
+        width: 100%;
     }
 
     .line {
         width: 60px;
     }
 
-    .view-menu:hover .second-line {
+    .menu:hover .second-line {
         width: 30px;
     }
 
@@ -91,4 +145,5 @@
     .view-menu-text {
         display: none;
     }
+
 }
