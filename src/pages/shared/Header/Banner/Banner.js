@@ -4,7 +4,7 @@ import './Banner.css'
 const Banner = () => {
     return (
         <div>
-
+            hi, it's banner
         </div>
     );
 };
