@@ -6,6 +6,7 @@ import Footer from '../../pages/shared/Footer/Footer';
 import AppointmentButton from '../../pages/shared/Buttons/AppointmentButton/AppointmentButton';
 
 const Main = () => {
+
     return (
         <div className='main'>
             <div className='main-body'>

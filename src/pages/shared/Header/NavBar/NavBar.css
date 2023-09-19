@@ -1,4 +1,7 @@
 .navbar {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.5);
     padding-top: 1%;
     display: flex;
     justify-content: space-between;
@@ -10,14 +13,27 @@
     width: 200px;
 }
 
+@keyframes menu-container-animation {
+    0% {
+        top: -1000px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
 .menu-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: end;
     background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    animation: menu-container-animation 0.5s linear 0s 1;
 }
 
 .menu {
@@ -25,8 +41,6 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
-    /* align-items: center; */
     color: #464646;
     font-weight: 500;
     padding-top: 2%;
@@ -35,6 +49,7 @@
 
 .menu-open {
     height: 100vh;
+
 }
 
 .toggle-menuOpen-container {
@@ -95,8 +110,8 @@
 
 .menu-options {
     margin-top: 50px;
-    /* margin-bottom: 20vh; */
-    /* overflow-y: scroll; */
+    /* margin-bottom: 100px; */
+    overflow-y: scroll;
 }
 
 .user-info {
@@ -107,12 +122,23 @@
     margin-bottom: 25px;
 }
 
+.menu-option-link {
+    text-decoration: none;
+    color: #464646;
+}
+
 .menu-option {
     display: flex;
     align-items: center;
     gap: 25px;
     border-bottom: 1px solid #464646;
     padding-left: 45px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.menu-option:hover {
+    cursor: pointer;
 }
 
 .menu-option:hover p {
@@ -126,6 +152,10 @@
 
     .menu {
         width: 100%;
+    }
+
+    .menu-options {
+        padding-bottom: 100px;
     }
 
     .toggle-menuOpen-container {

@@ -1,12 +1,14 @@
 import React from 'react';
 import './Banner.css'
+import { useLocation } from 'react-router-dom';
+import HomeBanner from './HomeBanner/HomeBanner';
 
 const Banner = () => {
-    return (
-        <div>
-            hi, it's banner
-        </div>
-    );
+
+    const page = useLocation().pathname;
+
+    if (page === '/') return <HomeBanner></HomeBanner>
+
 };
 
 export default Banner;

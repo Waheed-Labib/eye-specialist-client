@@ -5,11 +5,13 @@ import greenLogo from '../../../../assets/images/logo/green logo.png'
 import { AuthContext } from '../../../../contexts/AuthProvider';
 import { FaHome, FaPen, FaPlusSquare, FaRegListAlt, FaSignInAlt, FaSignOutAlt, FaStar, FaUserAlt, FaUserPlus } from 'react-icons/fa';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 
-    const [logo, setLogo] = useState('greyLogo')
     const [menuOpen, setMenuOpen] = useState(false)
+    const [logo, setLogo] = useState('greyLogo')
+
     const { user, logOut } = useContext(AuthContext)
 
     const handleSignOut = () => {
@@ -24,22 +26,24 @@ const NavBar = () => {
 
     return (
         <div className='navbar'>
-            {
-                logo === 'greyLogo' ?
-                    <img
-                        className='logo'
-                        onMouseOver={() => setLogo('greenLogo')}
-                        src={greyLogo}
-                        alt=''></img>
-                    :
-                    <img
-                        className='logo'
-                        onMouseLeave={() => setLogo('greyLogo')}
-                        src={greenLogo}
-                        alt=''></img>
-            }
+            <Link to='/'>
+                {
+                    logo === 'greyLogo' ?
+                        <img
+                            className='logo'
+                            onMouseOver={() => setLogo('greenLogo')}
+                            src={greyLogo}
+                            alt=''></img>
+                        :
+                        <img
+                            className='logo'
+                            onMouseLeave={() => setLogo('greyLogo')}
+                            src={greenLogo}
+                            alt=''></img>
+                }
+            </Link>
 
-            <div className={`${menuOpen && 'menu-container'}`}>
+            <div className={`${menuOpen ? 'menu-container' : 'hidden-menu-container'}`}>
                 <div className={`menu ${menuOpen && 'menu-open'}`}>
                     <div onClick={() => setMenuOpen(!menuOpen)}
                         className='toggle-menuOpen-container'>
@@ -71,49 +75,85 @@ const NavBar = () => {
                                 </div>
                             }
 
+                            <Link
+                                onClick={() => setMenuOpen(false)}
+                                className='menu-option-link'
+                                to='/'>
+                                <div className='menu-option'>
+                                    <FaHome></FaHome>
+                                    <p>Home</p>
+                                </div>
+                            </Link>
 
-                            <div className='menu-option'>
-                                <FaHome></FaHome>
-                                <p>Home</p>
-                            </div>
-
-                            <div className='menu-option'>
-                                <FaRegListAlt></FaRegListAlt>
-                                <p>Services</p>
-                            </div>
+                            <Link
+                                onClick={() => setMenuOpen(false)}
+                                className='menu-option-link'
+                                to='/services'>
+                                <div className='menu-option'>
+                                    <FaRegListAlt></FaRegListAlt>
+                                    <p>Services</p>
+                                </div>
+                            </Link>
 
                             {
                                 user ?
                                     <>
-                                        <div className='menu-option'>
-                                            <FaStar></FaStar>
-                                            <p>My Reviews</p>
-                                        </div>
+                                        <Link
+                                            onClick={() => setMenuOpen(false)}
+                                            className='menu-option-link'
+                                            to='/my-reviews'>
+                                            <div className='menu-option'>
+                                                <FaStar></FaStar>
+                                                <p>My Reviews</p>
+                                            </div>
+                                        </Link>
 
-                                        <div className='menu-option'>
-                                            <FaPlusSquare></FaPlusSquare>
-                                            <p>Add Service</p>
-                                        </div>
+                                        <Link
+                                            onClick={() => setMenuOpen(false)}
+                                            className='menu-option-link'
+                                            to='/add-service'>
+                                            <div className='menu-option'>
+                                                <FaPlusSquare></FaPlusSquare>
+                                                <p>Add Service</p>
+                                            </div>
+                                        </Link>
 
                                     </>
                                     :
                                     <>
-                                        <div className='menu-option'>
-                                            <FaSignInAlt></FaSignInAlt>
-                                            <p>Sign in</p>
-                                        </div>
 
-                                        <div className='menu-option'>
-                                            <FaUserPlus></FaUserPlus>
-                                            <p>Create Account</p>
-                                        </div>
+                                        <Link
+                                            onClick={() => setMenuOpen(false)}
+                                            className='menu-option-link'
+                                            to='/signin'>
+                                            <div className='menu-option'>
+                                                <FaSignInAlt></FaSignInAlt>
+                                                <p>Sign in</p>
+                                            </div>
+                                        </Link>
+
+                                        <Link
+                                            onClick={() => setMenuOpen(false)}
+                                            className='menu-option-link'
+                                            to='/create-account'>
+                                            <div className='menu-option'>
+                                                <FaUserPlus></FaUserPlus>
+                                                <p>Create Account</p>
+                                            </div>
+                                        </Link>
                                     </>
                             }
 
-                            <div className='menu-option'>
-                                <FaPen></FaPen>
-                                <p>Blog</p>
-                            </div>
+                            <Link
+                                onClick={() => setMenuOpen(false)}
+                                className='menu-option-link'
+                                to='/blog'>
+                                <div className='menu-option'>
+                                    <FaPen></FaPen>
+                                    <p>Blog</p>
+                                </div>
+                            </Link>
+
 
                             {
                                 user &&
@@ -130,7 +170,7 @@ const NavBar = () => {
             </div>
 
 
-        </div>
+        </div >
     );
 };
 
