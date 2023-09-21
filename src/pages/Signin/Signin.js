@@ -75,7 +75,7 @@ const Signin = () => {
                 <p style={{ marginTop: '30px', marginBottom: '60px' }} className='stylish-yellow-heading'>Sign in to your Account</p>
 
                 <form className='sign-in-sign-up-form' onSubmit={handleSignIn}>
-                    <input style={{ width: '190px' }} onChange={event => setEmail(event.target.value)} type='email' placeholder='Email' name='email' required></input>
+                    <input style={{ width: '190px' }} onChange={event => setEmail(event.target.value)} type='email' placeholder='Email' name='email' required />
                     <input style={{ width: '190px' }} type='password' placeholder='Password' name='password' required></input>
 
                     <SubmitButton type='submit' text={'Sign In'}></SubmitButton>
@@ -86,7 +86,7 @@ const Signin = () => {
                 {/* ------OR-------- */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
                     <div className='line'></div>
-                    <p className='white-center-bold-text'>OR</p>
+                    <p className='white-center-text'>OR</p>
                     <div className='line'></div>
                 </div>
 

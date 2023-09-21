@@ -1,0 +1,32 @@
+.services-banner {
+    background-image: url('../../../../../assets/images/banner/home/home-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.services-quote {
+    height: 35%;
+    width: 35%;
+}
+
+.services-doctor {
+    margin-top: 10%;
+    height: 30%;
+    width: 30%;
+}
+
+@media screen and (max-width:768px) {
+    .services-quote {
+        height: 50%;
+        width: 50%;
+    }
+
+    .services-doctor {
+        margin-top: 15%;
+        height: 40%;
+        width: 40%;
+    }
+}

@@ -68,7 +68,7 @@ const CreateAccount = () => {
 
             <div className='sign-in-sign-up'>
                 <p className='stylish-yellow-heading'>Create Account</p>
-                <p className='white-center-bold-text'>it's free !</p>
+                <p className='white-center-text'>it's free !</p>
 
                 <form className='sign-in-sign-up-form' onSubmit={handleCreateAccount}>
                     <div className='name-inputs'>
@@ -78,7 +78,7 @@ const CreateAccount = () => {
                     <input type='email' placeholder='Email' name='email' required></input>
                     <input type='password' placeholder='Password' name='password' required></input>
 
-                    <p className='white-center-bold-text'>
+                    <p className='white-center-text'>
                         By clicking "Create Account",
                         <br></br>
                         you are agreeing with our <Link className='yellow-link'>community standards</Link>
@@ -93,7 +93,7 @@ const CreateAccount = () => {
                 {/* ------OR-------- */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
                     <div className='line'></div>
-                    <p className='white-center-bold-text'>OR</p>
+                    <p className='white-center-text'>OR</p>
                     <div className='line'></div>
                 </div>
 

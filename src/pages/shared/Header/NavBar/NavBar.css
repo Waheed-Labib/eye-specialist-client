@@ -1,11 +1,7 @@
 .navbar {
-    position: sticky;
-    top: 0;
-    background-color: rgba(255, 255, 255, 0.5);
     padding-top: 1%;
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
 }
 
 .logo {
@@ -27,16 +23,48 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: end;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1;
     animation: menu-container-animation 0.5s linear 0s 1;
 }
 
-.menu {
+@keyframes hide-menu-container-animation {
+    0% {
+        top: 0;
+        height: 100vh;
+    }
+
+    100% {
+        top: -1000px;
+    }
+}
+
+.hidden-menu-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    display: flex;
+    justify-content: end;
+    background-color: rgba(0, 0, 0, 0);
+    animation: hide-menu-container-animation 0.5s linear 0s 1;
+}
+
+.menu-closed {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    color: #464646;
+    font-weight: 500;
+    padding-top: 2%;
+}
+
+.menu-open {
+    height: 100vh;
     width: 600px;
     background-color: white;
     display: flex;
@@ -44,27 +72,26 @@
     color: #464646;
     font-weight: 500;
     padding-top: 2%;
-
-}
-
-.menu-open {
-    height: 100vh;
-
 }
 
 .toggle-menuOpen-container {
     display: flex;
     justify-content: center;
+
 }
 
 .toggle-menuOpen {
     display: flex;
     align-items: center;
     gap: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-inline: 2%;
+    border-radius: 2px;
 }
 
 .toggle-menuOpen p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .toggle-menuOpen:hover {
@@ -91,10 +118,12 @@
 }
 
 .rotated-first-line {
+    width: 40px;
     transform: rotate(45deg);
 }
 
 .rotated-second-line {
+    width: 40px;
     position: absolute;
     bottom: 0;
     transform: rotate(-45deg);
@@ -112,6 +141,24 @@
     margin-top: 50px;
     /* margin-bottom: 100px; */
     overflow-y: scroll;
+    /* background-color: white; */
+}
+
+@keyframes hide-menu-options-animation {
+    0% {
+        display: block;
+
+    }
+
+    100% {
+        display: none;
+    }
+}
+
+.hide-menu-options {
+    animation: hide-menu-options-animation 0.5s linear 0s 1;
+    background-color: white;
+    display: none;
 }
 
 .user-info {
@@ -125,6 +172,10 @@
 .menu-option-link {
     text-decoration: none;
     color: #464646;
+}
+
+.activated-link {
+    color: green;
 }
 
 .menu-option {
@@ -147,10 +198,11 @@
 
 @media screen and (max-width: 768px) {
     .logo {
-        width: 150px;
+        height: 70px;
+        width: 125px;
     }
 
-    .menu {
+    .menu-open {
         width: 100%;
     }
 
@@ -164,10 +216,13 @@
     }
 
     .toggle-menuOpen {
-        padding-top: 30px;
+        margin-top: 30px;
+        padding: 2%;
+        background-color: rgba(255, 255, 255, 0.5);
     }
 
     .toggle-menuOpen p {
         display: none;
     }
+
 }

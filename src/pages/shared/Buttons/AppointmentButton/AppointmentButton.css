@@ -11,7 +11,7 @@
     rotate: -90deg;
     transition: 0.4s;
     position: fixed;
-
+    z-index: 1;
 }
 
 .appointment-btn:hover {
@@ -30,5 +30,6 @@
         width: 100vw;
         rotate: 0deg;
         bottom: 0;
+        height: 60px;
     }
 }

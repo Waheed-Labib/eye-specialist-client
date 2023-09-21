@@ -5,12 +5,14 @@ import greenLogo from '../../../../assets/images/logo/green logo.png'
 import { AuthContext } from '../../../../contexts/AuthProvider';
 import { FaHome, FaPen, FaPlusSquare, FaRegListAlt, FaSignInAlt, FaSignOutAlt, FaStar, FaUserAlt, FaUserPlus } from 'react-icons/fa';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
 
     const [menuOpen, setMenuOpen] = useState(false)
     const [logo, setLogo] = useState('greyLogo')
+
+    const activatedPage = useLocation().pathname;
 
     const { user, logOut } = useContext(AuthContext)
 
@@ -22,6 +24,10 @@ const NavBar = () => {
             .catch(() => {
                 toast.error('Something Went Wrong')
             })
+    }
+
+    const stopPropagation = event => {
+        event.stopPropagation()
     }
 
     return (
@@ -43,8 +49,9 @@ const NavBar = () => {
                 }
             </Link>
 
-            <div className={`${menuOpen ? 'menu-container' : 'hidden-menu-container'}`}>
-                <div className={`menu ${menuOpen && 'menu-open'}`}>
+
+            <div onClick={() => setMenuOpen(false)} className={`${menuOpen ? 'menu-container' : 'hidden-menu-container'}`}>
+                <div onClick={stopPropagation} className={`${menuOpen ? 'menu-open' : 'menu-closed'}`}>
                     <div onClick={() => setMenuOpen(!menuOpen)}
                         className='toggle-menuOpen-container'>
                         <div
@@ -64,8 +71,7 @@ const NavBar = () => {
 
 
                     {
-                        menuOpen &&
-                        <div className='menu-options'>
+                        <div className={`${menuOpen ? 'menu-options' : 'hide-menu-options'}`}>
 
                             {
                                 user &&
@@ -77,7 +83,7 @@ const NavBar = () => {
 
                             <Link
                                 onClick={() => setMenuOpen(false)}
-                                className='menu-option-link'
+                                className={`menu-option-link ${activatedPage === '/' && 'activated-link'}`}
                                 to='/'>
                                 <div className='menu-option'>
                                     <FaHome></FaHome>
@@ -87,7 +93,7 @@ const NavBar = () => {
 
                             <Link
                                 onClick={() => setMenuOpen(false)}
-                                className='menu-option-link'
+                                className={`menu-option-link ${activatedPage === '/services' && 'activated-link'}`}
                                 to='/services'>
                                 <div className='menu-option'>
                                     <FaRegListAlt></FaRegListAlt>
@@ -100,7 +106,7 @@ const NavBar = () => {
                                     <>
                                         <Link
                                             onClick={() => setMenuOpen(false)}
-                                            className='menu-option-link'
+                                            className={`menu-option-link ${activatedPage === '/my-reviews' && 'activated-link'}`}
                                             to='/my-reviews'>
                                             <div className='menu-option'>
                                                 <FaStar></FaStar>
@@ -110,7 +116,7 @@ const NavBar = () => {
 
                                         <Link
                                             onClick={() => setMenuOpen(false)}
-                                            className='menu-option-link'
+                                            className={`menu-option-link ${activatedPage === '/add-service' && 'activated-link'}`}
                                             to='/add-service'>
                                             <div className='menu-option'>
                                                 <FaPlusSquare></FaPlusSquare>
@@ -124,7 +130,7 @@ const NavBar = () => {
 
                                         <Link
                                             onClick={() => setMenuOpen(false)}
-                                            className='menu-option-link'
+                                            className={`menu-option-link ${activatedPage === '/signin' && 'activated-link'}`}
                                             to='/signin'>
                                             <div className='menu-option'>
                                                 <FaSignInAlt></FaSignInAlt>
@@ -134,7 +140,7 @@ const NavBar = () => {
 
                                         <Link
                                             onClick={() => setMenuOpen(false)}
-                                            className='menu-option-link'
+                                            className={`menu-option-link ${activatedPage === '/create-account' && 'activated-link'}`}
                                             to='/create-account'>
                                             <div className='menu-option'>
                                                 <FaUserPlus></FaUserPlus>
@@ -146,7 +152,7 @@ const NavBar = () => {
 
                             <Link
                                 onClick={() => setMenuOpen(false)}
-                                className='menu-option-link'
+                                className={`menu-option-link ${activatedPage === '/blog' && 'activated-link'}`}
                                 to='/blog'>
                                 <div className='menu-option'>
                                     <FaPen></FaPen>
@@ -171,6 +177,7 @@ const NavBar = () => {
 
 
         </div >
+
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.css'
 import NavBar from '../NavBar/NavBar';
 import Banner from '../Banner/Banner';
@@ -9,6 +9,7 @@ const Header = () => {
         <div style={{ position: 'relative' }}>
             <NavBar></NavBar>
             <Banner></Banner>
+
         </div >
     );
 };

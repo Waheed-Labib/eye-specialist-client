@@ -1,10 +1,13 @@
 .App {
-    /* background-color: aqua */
+    font-family: 'Ubuntu', sans-serif;
 }
 
 /* common styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Ubuntu&display=swap');
+
+
 
 .d-none {
     display: none;
