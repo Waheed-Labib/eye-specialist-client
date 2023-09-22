@@ -68,9 +68,6 @@
     color: rgb(45, 45, 45);
 }
 
-.d-md-none {
-    display: none;
-}
 
 @media screen and (max-width:1060px) {
     .home-banner h1 {
@@ -103,13 +100,7 @@
         flex-direction: column;
     }
 
-    .d-sm-none {
-        display: none;
-    }
 
-    .d-md-none {
-        display: block;
-    }
 
     .second-sentence {
         padding-left: 0;
