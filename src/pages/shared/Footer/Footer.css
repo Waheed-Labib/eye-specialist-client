@@ -6,6 +6,7 @@
     flex-direction: column;
     gap: 45px;
     padding: 5%;
+    padding-top: 7%;
 }
 
 .footer a,
@@ -72,6 +73,11 @@
 }
 
 @media screen and (max-width:768px) {
+
+    .footer {
+        padding-top: 15%;
+    }
+
     .footer-info {
         flex-direction: column;
         gap: 45px;

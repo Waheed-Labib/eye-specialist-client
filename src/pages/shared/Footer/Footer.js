@@ -8,6 +8,13 @@ const Footer = () => {
 
     const currentYear = new Date().getFullYear();
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
     return (
         <div className='footer'>
             <div className='footer-info'>
@@ -70,13 +77,13 @@ const Footer = () => {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <button className='back-to-top-btn'>
+                <button onClick={scrollToTop} className='back-to-top-btn'>
                     <p>BACK TO TOP</p>
                     <FaArrowUp></FaArrowUp>
                 </button>
             </div>
 
-        </div >
+        </div>
 
     );
 };

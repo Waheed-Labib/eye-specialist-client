@@ -3,6 +3,7 @@ import './AddService.css';
 import { FaPlus, FaRegImage } from 'react-icons/fa6'
 
 const AddService = () => {
+
     return (
         <form className='add-service'>
             <div>
