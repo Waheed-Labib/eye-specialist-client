@@ -60,7 +60,7 @@ const Footer = () => {
 
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <img style={{ width: '200px', height: '150px' }} src={logo} alt=''></img>
+                    <img style={{ width: '150px', height: '75px' }} src={logo} alt=''></img>
                 </div>
 
             </div>

@@ -5,9 +5,9 @@ import { FaPlus, FaRegImage } from 'react-icons/fa6'
 const AddService = () => {
 
     return (
-        <form className='add-service'>
+        <form className='section add-service'>
             <div>
-                <h1 style={{ color: '#464646', margin: '0' }}>Add A Service</h1>
+                <h1 className='section-heading'>Add A Service</h1>
             </div>
 
             <div className='add-service-buttons add-service-buttons-md'>

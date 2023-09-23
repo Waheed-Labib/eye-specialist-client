@@ -1,9 +1,7 @@
 .add-service {
-    margin-top: 5%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding: 5%;
 }
 
 .add-service h3 {
@@ -28,6 +26,7 @@
 
 .reset-btn {
     background-color: white;
+    color: black;
     border: 1px solid #464646;
     border-radius: 4px;
     padding: 1.5%;

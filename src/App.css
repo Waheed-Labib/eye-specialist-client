@@ -1,11 +1,20 @@
+/* common styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Ubuntu&display=swap');
+
 .App {
     font-family: 'Ubuntu', sans-serif;
 }
 
-/* common styles */
+.section {
+    margin-top: 5%;
+    padding: 5%;
+}
 
-
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Ubuntu&display=swap');
+.section-heading {
+    color: #464646;
+    margin: 0;
+}
 
 .d-none {
     display: none;
@@ -30,6 +39,22 @@
 .toast-error {
     background-color: rgb(248, 42, 42, 0.5);
     color: white;
+}
+
+.green-link {
+    color: rgb(1, 101, 1);
+}
+
+.link-without-underline {
+    text-decoration: none;
+}
+
+.link-without-underline:hover {
+    text-decoration: underline;
+}
+
+.text-semibold {
+    font-weight: 600;
 }
 
 @media screen and (max-width:768px) {
