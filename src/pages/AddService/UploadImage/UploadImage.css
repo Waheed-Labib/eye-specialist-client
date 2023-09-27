@@ -1,0 +1,128 @@
+.service-image-upload {
+    width: 93%;
+    height: 100px;
+    margin-top: 25px;
+    color: rgb(1, 101, 1);
+    border: 2px dashed #a9a9a9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.service-image-upload:hover {
+    cursor: pointer;
+    border: 2px dashed #464646;
+}
+
+.service-image-upload div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.selected-image {
+    height: 75px;
+    width: 120px;
+    border-radius: 3px;
+}
+
+.service-image-upload:hover .green-link {
+    text-decoration: underline;
+}
+
+.select-image-modal {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: #46464653;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-image-modal-content {
+    background-color: white;
+    border-radius: 15px;
+    height: 80%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.select-image-modal-content img {
+    border-radius: 10px;
+    height: 60%;
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.ok-btn {
+    margin-right: 10px;
+    position: relative;
+    width: 90px;
+    height: 45px;
+    padding-right: 50px;
+    padding-left: 10px;
+    background-color: rgb(38, 210, 38);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.ok-btn:hover {
+    background-color: green;
+}
+
+.tick {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 2rem;
+    color: white;
+}
+
+.cancel-btn {
+    position: relative;
+    width: 90px;
+    height: 45px;
+    padding-right: 50px;
+    padding-left: 10px;
+    background-color: rgb(219, 57, 89);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.cancel-btn:hover {
+    background-color: red;
+}
+
+.cancel-icon {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    font-size: 1.5rem;
+    color: white;
+}
+
+
+
+@media screen and (max-width:768px) {
+    .select-image-modal-content {
+        height: 75%;
+        width: 90%;
+    }
+}

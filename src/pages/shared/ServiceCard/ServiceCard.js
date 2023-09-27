@@ -2,30 +2,28 @@ import React, { useState } from 'react';
 import './ServiceCard.css'
 import { FaStar } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Overlay } from 'react-bootstrap';
 
 const ServiceCard = ({ service }) => {
 
     const { name, image, description, price } = service;
-    const [imageHover, setImageHover] = useState(false);
+    const [hoverImage, setHoverImage] = useState(false)
 
     return (
         <div className='service-card'>
-            <img
-                onMouseOver={() => setImageHover(true)}
-                onMouseLeave={() => setImageHover(false)}
-                className='service-card-img'
-                src={image} alt={name}
-            ></img>
+            <PhotoProvider>
+                <PhotoView src={image}>
+                    <img
+                        onMouseOver={() => setHoverImage(true)}
+                        onMouseLeave={() => setHoverImage(false)}
+                        className='service-card-img'
+                        src={image} alt="" />
+                </PhotoView>
+            </PhotoProvider >
 
-            {
-                imageHover &&
-
-                <div
-                    onMouseOver={() => setImageHover(true)}
-                    className='image-hover-div'>
-                    <p>Click to see full screen</p>
-                </div>
-            }
+            <p
+                className={`img-hover-text ${hoverImage || 'd-none'}`}>Click image for full screen view</p>
 
             <div className='service-card-info'>
                 <p className='service-card-name'>{name}</p>

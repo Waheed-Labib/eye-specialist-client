@@ -1,23 +1,12 @@
 .service-card {
     position: relative;
+    z-index: 2;
     border: 1px solid #606060;
     border-radius: 25px;
     height: 350px;
     width: 300px;
     box-shadow: 4px 4px 4px rgb(1, 101, 1);
-}
-
-.image-hover-div {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 30px;
-    margin-right: 45px;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #363636;
-    padding-inline: 10px;
-    border-radius: 4px;
-    font-weight: 600;
+    background-color: white;
 }
 
 .service-card:hover {
@@ -52,6 +41,21 @@
     width: 100%;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+}
+
+.img-hover-text {
+    position: absolute;
+    z-index: 2;
+    top: 30%;
+    right: 0;
+    width: 150px;
+    background-color: rgb(113, 199, 113);
+    border-radius: 2px;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 4px;
+    padding-inline: 12px;
 }
 
 .service-card-price {

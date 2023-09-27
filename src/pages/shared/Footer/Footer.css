@@ -2,6 +2,8 @@
     margin-top: 60px;
     background-image: url(../../../assets/images/banner/footer/footer-bg.webp);
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     gap: 45px;
