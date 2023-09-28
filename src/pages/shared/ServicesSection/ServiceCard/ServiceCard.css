@@ -45,7 +45,6 @@
 
 .img-hover-text {
     position: absolute;
-    z-index: 2;
     top: 30%;
     right: 0;
     width: 150px;

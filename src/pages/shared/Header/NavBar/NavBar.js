@@ -52,10 +52,10 @@ const NavBar = () => {
 
             <div onClick={() => setMenuOpen(false)} className={`${menuOpen ? 'menu-container' : 'hidden-menu-container'}`}>
                 <div onClick={stopPropagation} className={`${menuOpen ? 'menu-open' : 'menu-closed'}`}>
-                    <div onClick={() => setMenuOpen(!menuOpen)}
+                    <div
                         className='toggle-menuOpen-container'>
                         <div
-
+                            onClick={() => setMenuOpen(!menuOpen)}
                             className='toggle-menuOpen'>
 
                             <p className={` ${menuOpen && 'd-none'}`}>View Menu</p>
