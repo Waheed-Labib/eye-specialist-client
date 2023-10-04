@@ -17,7 +17,7 @@
     margin: 5%;
 }
 
-.sign-in-sign-up-page img {
+.sign-in-sign-up-img {
     width: 45%;
 }
 
@@ -102,7 +102,7 @@
 
 @media screen and (max-width:768px) {
 
-    .sign-in-sign-up-page img {
+    .sign-in-sign-up-img {
         display: none;
     }
 

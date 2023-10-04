@@ -69,7 +69,7 @@ const Signin = () => {
     return (
         <div className='sign-in-sign-up-page sign-in-page'>
 
-            <img src={eyeCheckUp} alt=''></img>
+            <img className='sign-in-sign-up-img' src={eyeCheckUp} alt=''></img>
 
             <div className='sign-in-sign-up'>
                 <p style={{ marginTop: '30px', marginBottom: '60px' }} className='stylish-yellow-heading'>Sign in to your Account</p>

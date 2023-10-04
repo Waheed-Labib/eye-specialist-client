@@ -69,7 +69,7 @@ const CreateAccount = () => {
     return (
         <div className='sign-in-sign-up-page'>
 
-            <img src={eyeCheckUp} alt=''></img>
+            <img className='sign-in-sign-up-img' src={eyeCheckUp} alt=''></img>
 
             <div className='sign-in-sign-up'>
                 <p className='stylish-yellow-heading'>Create Account</p>
@@ -114,7 +114,7 @@ const CreateAccount = () => {
                 {/* upload image modal */}
                 {
                     uploadUserImageOpen &&
-                    <UploadUserImage></UploadUserImage>
+                    <UploadUserImage setUploadUserImageOpen={setUploadUserImageOpen}></UploadUserImage>
                 }
             </div>
         </div>
