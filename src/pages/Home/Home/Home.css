@@ -38,19 +38,16 @@
         justify-content: center;
         width: 120px;
         height: 120px;
-        background-color: rgb(141, 202, 141);
+        border: 1px solid rgb(1, 101, 1);
+        color: rgb(1, 101, 1);
         border-radius: 50%;
         padding: 2%;
     }
 
     .show-all-link:hover {
-        background-color: rgb(1, 101, 1);
-        color: white;
+        font-size: 1.3rem;
     }
 
-    .show-all-link:hover p {
-        text-decoration: none;
-    }
 }
 
 

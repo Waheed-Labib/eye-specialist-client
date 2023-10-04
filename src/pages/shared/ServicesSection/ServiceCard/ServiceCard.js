@@ -7,7 +7,7 @@ import { Overlay } from 'react-bootstrap';
 
 const ServiceCard = ({ service }) => {
 
-    const { name, image, description, price } = service;
+    const { _id, name, image, description, price } = service;
     const [hoverImage, setHoverImage] = useState(false)
 
     return (
@@ -25,29 +25,30 @@ const ServiceCard = ({ service }) => {
             <p
                 className={`img-hover-text ${hoverImage || 'd-none'}`}>Click image for full screen view</p>
 
-            <div className='service-card-info'>
-                <p className='service-card-name'>{name}</p>
-                <p className='service-card-description'>
-                    {description.substr(0, 100)}&nbsp;<span style={{ color: 'rgb(1,101,1)' }}>...</span>&nbsp;
-                    <Link className='green-link link-without-underline text-semibold'>visit details</Link>
-                </p>
+            <Link className='service-details-link' to={`/service-details/${_id}`}>
+                <div className='service-card-info'>
+                    <p className='service-card-name'>{name}</p>
+                    <p className='service-card-description'>
+                        {description.substr(0, 100)}&nbsp;<span style={{ color: 'rgb(1,101,1)' }}>...</span>&nbsp;
+                        <button className='service-details-btn'>visit details</button>
+                    </p>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div>
-                        <p className='service-card-price'>{price} $</p>
-                        <div style={{ color: 'rgb(1,101,1)' }}>
-                            <FaStar></FaStar>
-                            <FaStar></FaStar>
-                            <FaStar></FaStar>
-                            <FaStar></FaStar>
-                            <FaStar></FaStar>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div>
+                            <p className='service-card-price'>{price} $</p>
+                            <div style={{ color: 'rgb(1,101,1)' }}>
+                                <FaStar></FaStar>
+                                <FaStar></FaStar>
+                                <FaStar></FaStar>
+                                <FaStar></FaStar>
+                                <FaStar></FaStar>
+                            </div>
                         </div>
+
+                        <button className='service-card-button'>Details</button>
                     </div>
-
-                    <button className='service-card-button'>Details</button>
                 </div>
-
-            </div>
+            </Link>
 
         </div>
     );

@@ -76,7 +76,13 @@ const NavBar = () => {
                             {
                                 user &&
                                 <div className='user-info'>
-                                    <FaUserAlt></FaUserAlt>
+                                    {
+                                        user?.photoURL ?
+                                            <img style={{ height: '50px', width: '50px', borderRadius: '50%', border: '2px solid #464646' }} src={user?.photoURL} alt=''></img>
+                                            :
+                                            <FaUserAlt></FaUserAlt>
+                                    }
+
                                     <p>Logged in as <span style={{ fontSize: '1.1rem', fontWeight: '700' }}>{user?.displayName}</span></p>
                                 </div>
                             }

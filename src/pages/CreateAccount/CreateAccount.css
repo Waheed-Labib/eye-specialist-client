@@ -72,11 +72,16 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: 0.4s;
+
 }
 
 .rotate-icon {
     transform: rotate(45deg);
+    transition: 0.3s;
+}
+
+.rotate-icon-on-hover:hover .rotate-icon {
+    transform: rotate(0deg);
 }
 
 @media screen and (max-width:1054px) {

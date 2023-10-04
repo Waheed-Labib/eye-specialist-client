@@ -1,13 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AddService.css';
 import { FaPlus } from 'react-icons/fa6'
 import toast from 'react-hot-toast';
-import UploadImage from './UploadImage/UploadImage';
+import UploadServiceImage from './UploadServiceImage/UploadServiceImage';
+import { Navigate } from 'react-router-dom';
 
 
 const AddService = () => {
 
     const [photoUrl, setPhotoURL] = useState('');
+    const [isAdded, setIsAdded] = useState(false);
+    const [navigate, setNavigate] = useState(null);
+
+    useEffect(() => {
+        if (isAdded) {
+            fetch('http://localhost:5000/services')
+                .then(res => res.json())
+                .then(data => {
+                    // navigate to the last service in services, that means the recently added service
+                    setNavigate(`/service-details/${data[data.length - 1]._id}`)
+                })
+        }
+    }, [isAdded])
 
     const handleAddService = event => {
         event.preventDefault();
@@ -30,7 +44,7 @@ const AddService = () => {
         if (!photoUrl) {
             toast.error(
                 <div className='toast toast-error'>
-                    <p>You have not uploaded an image.</p>
+                    <p>You have not uploaded an image. Or the format is not supported.</p>
                 </div>
             )
 
@@ -59,6 +73,7 @@ const AddService = () => {
                     </div>
                 )
                 form.reset();
+                setIsAdded(true);
             })
             .catch(() => {
                 toast.error(
@@ -68,6 +83,8 @@ const AddService = () => {
                 )
             })
     }
+
+    if (navigate) return <Navigate to={navigate}></Navigate>
 
     return (
         <form
@@ -101,7 +118,7 @@ const AddService = () => {
                 <textarea name='description' style={{ height: '90px' }} className='add-service-input' required></textarea>
             </div>
 
-            <UploadImage setPhotoURL={setPhotoURL}></UploadImage>
+            <UploadServiceImage setPhotoURL={setPhotoURL} isAdded={isAdded}></UploadServiceImage>
 
             <div className='add-service-buttons add-service-buttons-sm'>
                 <button type='submit' className='submit-btn'>

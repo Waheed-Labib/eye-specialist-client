@@ -3,8 +3,8 @@
     position: relative;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:960px) {
     .main-body {
-        margin-bottom: 100px;
+        margin-bottom: 70px;
     }
 }

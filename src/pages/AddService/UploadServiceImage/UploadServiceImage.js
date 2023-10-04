@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { FaRegImage } from 'react-icons/fa6';
-import './UploadImage.css';
+import './UploadServiceImage.css'
 import { TiCancel, TiTick } from 'react-icons/ti';
-import { getDownloadURL, listAll, ref, uploadBytes } from 'firebase/storage'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { StorageContext } from '../../../contexts/StorageProvider';
 import { v4 } from 'uuid'
 import toast from 'react-hot-toast';
 
-const UploadImage = ({ setPhotoURL }) => {
+const UploadServiceImage = ({ setPhotoURL, isAdded }) => {
 
     const [image, setImage] = useState('')
     const [modalOpen, setModalOpen] = useState(false);
@@ -53,7 +53,7 @@ const UploadImage = ({ setPhotoURL }) => {
     return (
         <div>
             {
-                image ?
+                image && !isAdded ?
                     <div>
                         <div onClick={handleImageClick} className='service-image-upload'>
                             <div>
@@ -101,4 +101,4 @@ const UploadImage = ({ setPhotoURL }) => {
     );
 };
 
-export default UploadImage;
+export default UploadServiceImage;

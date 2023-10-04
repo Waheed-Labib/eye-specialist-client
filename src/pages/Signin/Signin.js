@@ -94,7 +94,7 @@ const Signin = () => {
                 <GoogleButton></GoogleButton>
 
                 {/* toggle to sign in */}
-                <Link to='/create-account' className='white-link'>
+                <Link to='/create-account' className='white-link rotate-icon-on-hover'>
                     Not A Member?
                     <FaArrowRight className='rotate-icon'></FaArrowRight>
                 </Link>

@@ -4,6 +4,8 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 import ServicesSection from '../../shared/ServicesSection/ServicesSection';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa6';
+import Loading from '../../shared/Loading/Loading';
+import ShowAllServicesLink from '../../shared/ShowAllServicesLink/ShowAllServicesLink';
 
 const Home = () => {
 
@@ -19,10 +21,7 @@ const Home = () => {
         <div>
             <div className='home-page-services'>
                 <ServicesSection services={services}></ServicesSection>
-                <Link className='show-all-link' to='/services'>
-                    <p>Show All Services</p>
-                    <FaArrowRight></FaArrowRight>
-                </Link>
+                <ShowAllServicesLink></ShowAllServicesLink>
             </div>
 
         </div>

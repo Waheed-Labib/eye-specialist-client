@@ -22,7 +22,7 @@
 .menu-container {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     z-index: 3;
     width: 100vw;
     height: 100vh;
@@ -82,7 +82,7 @@
 
 .toggle-menuOpen {
     position: fixed;
-    top: 2%;
+    top: 3%;
     display: flex;
     align-items: center;
     gap: 15px;
@@ -216,7 +216,7 @@
     }
 
     .toggle-menuOpen {
-        margin-top: 20px;
+        margin-top: 8px;
         padding: 2%;
         background-color: rgba(255, 255, 255, 0.5);
     }
@@ -225,4 +225,12 @@
         display: none;
     }
 
+    .line {
+        width: 60px;
+    }
+
+    .rotated-first-line,
+    .rotated-second-line {
+        width: 40px;
+    }
 }

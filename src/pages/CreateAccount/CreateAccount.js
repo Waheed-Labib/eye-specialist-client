@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './CreateAccount.css'
 import eyeCheckUp from '../../assets/images/sign in/eye-check-up-vector.jpg'
 import { Link } from 'react-router-dom';
@@ -7,8 +7,11 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
 import SubmitButton from '../shared/Buttons/SubmitButton/SubmitButton';
 import GoogleButton from '../shared/Buttons/GoogleButton/GoogleButton';
+import UploadUserImage from './UploadUserImage/UploadUserImage';
 
 const CreateAccount = () => {
+
+    const [uploadUserImageOpen, setUploadUserImageOpen] = useState(false);
 
     const {
         user,
@@ -55,6 +58,8 @@ const CreateAccount = () => {
                 )
 
                 form.reset();
+
+                setUploadUserImageOpen(true);
             })
             .catch(err => toast.error(
                 <p className='toast toast-error'>{err.message}</p>
@@ -101,10 +106,16 @@ const CreateAccount = () => {
                 <GoogleButton></GoogleButton>
 
                 {/* toggle to sign in */}
-                <Link to='/signin' className='white-link'>
+                <Link to='/signin' className='white-link rotate-icon-on-hover'>
                     Already A Member?
                     <FaArrowRight className='rotate-icon'></FaArrowRight>
                 </Link>
+
+                {/* upload image modal */}
+                {
+                    uploadUserImageOpen &&
+                    <UploadUserImage></UploadUserImage>
+                }
             </div>
         </div>
     );
