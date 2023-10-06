@@ -14,7 +14,7 @@ const AddService = () => {
 
     useEffect(() => {
         if (isAdded) {
-            fetch('http://localhost:5000/services')
+            fetch('https://eye-specialist-server.vercel.app/services')
                 .then(res => res.json())
                 .then(data => {
                     // navigate to the last service in services, that means the recently added service
@@ -58,7 +58,7 @@ const AddService = () => {
             image: photoUrl
         }
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://eye-specialist-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

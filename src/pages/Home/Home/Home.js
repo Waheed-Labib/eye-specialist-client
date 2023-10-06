@@ -12,7 +12,7 @@ const Home = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services?limit=3')
+        fetch('https://eye-specialist-server.vercel.app/services?limit=3')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
