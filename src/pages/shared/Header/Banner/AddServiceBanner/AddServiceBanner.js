@@ -7,7 +7,7 @@ const AddServiceBanner = () => {
     return (
         <div className='add-service-banner-container'>
             <div className='add-service-banner'>
-                <h1 onClick={() => window.scrollTo(0, 500)}>
+                <h1 onClick={() => window.scrollTo(0, 600)}>
                     ADD A SERVICE FROM HERE
                     <FaArrowCircleRight className='add-service-arrow' />
                 </h1>

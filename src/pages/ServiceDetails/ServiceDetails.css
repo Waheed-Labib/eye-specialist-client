@@ -1,0 +1,15 @@
+.service-details-page {
+    padding: 2%;
+}
+
+.rating-and-review-section {
+    position: relative;
+    z-index: 4;
+    background-color: rgb(255, 255, 255, 0.9);
+}
+
+@media screen and (max-width:960px) {
+    .rating-and-review-section {
+        z-index: 3;
+    }
+}

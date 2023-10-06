@@ -1,0 +1,82 @@
+.rate-and-review-div {
+    display: flex;
+    align-items: end;
+    gap: 5%;
+}
+
+.rate-and-review-div :nth-child(n) {
+    width: 67%;
+}
+
+.rate-and-review-div :first-child {
+    width: 33%;
+}
+
+.rate-and-review-div h3,
+.rate-and-review-div h4,
+.rate-and-review-div p {
+    margin: 0;
+}
+
+.rate-and-review-div h3 {
+    color: rgb(1, 101, 1);
+    margin-bottom: 10px;
+}
+
+.rate-and-review-box {
+    padding: 3%;
+    background-color: white;
+    border: 2px solid rgb(1, 101, 1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.rate-and-review-box img {
+    border-radius: 50%;
+    border: 2px solid rgb(1, 101, 1);
+    margin-right: 15px;
+}
+
+.rating-stars {
+    display: flex;
+    justify-content: end;
+}
+
+.rating-stars :nth-child(n) {
+    width: 35px;
+    font-size: 1.5rem;
+    color: rgb(1, 101, 1);
+}
+
+.review-input {
+    margin-top: 50px;
+    padding: 2%;
+    border-radius: 4px;
+    outline: 1px solid rgb(1, 101, 1);
+    color: rgb(1, 101, 1);
+    width: 100%;
+}
+
+.submit-review-btn {
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(1, 101, 1);
+    color: white;
+    padding: 2%;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width:768px) {
+    .rate-and-review-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rate-and-review-div :nth-child(n) {
+        width: 100%;
+        margin-bottom: 5%;
+    }
+
+}
