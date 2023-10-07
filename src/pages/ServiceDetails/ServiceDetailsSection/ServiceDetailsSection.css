@@ -46,7 +46,8 @@
     }
 
     .service-info {
-        width: 100%;
+        width: 94%;
+        margin-left: 3%;
     }
 
     .service-img-lg {

@@ -1,15 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './RateAndReview.css'
 import { FaRegStar } from 'react-icons/fa';
 import { AuthContext } from '../../../../contexts/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
+import ReviewModal from './ReviewModal/ReviewModal';
 
 const RateAndReview = ({ service }) => {
 
     const { user } = useContext(AuthContext);
+    const location = useLocation();
+    console.log(location);
+
+    const [reviewModalOpen, setReviewModalOpen] = useState(false);
+    const [navigateToLogin, setNavigateToLogin] = useState(false);
+
+    const handleAddReview = () => {
+        // if login, show review modal
+        if (user) setReviewModalOpen(true)
+
+        // else, navigate to login page
+        else setNavigateToLogin(true)
+    }
+
+    if (navigateToLogin) return <Navigate to='/signin' state={{ from: location }} replace></Navigate>
 
     return (
-        <div className='section'>
+        <div className='section rate-and-review-section'>
             <h1 style={{ marginBottom: '5%' }} className='section-heading'>Rate and Review</h1>
             <div className='rate-and-review-div'>
                 <div style={{ paddingLeft: '16px', paddingTop: '8px' }}>
@@ -27,24 +43,27 @@ const RateAndReview = ({ service }) => {
                                     <h4 style={{ fontSize: '1.25rem' }}>{user?.displayName}</h4>
                                 </>
                                 :
-                                <p style={{ color: '#464646' }}>You have to <Link to='/signin' className='green-link' style={{ fontSize: '1.2rem', fontWeight: '500' }}>Sign in</Link> first.</p>
+                                <p style={{ color: '#464646' }}>You have to <Link onClick={handleAddReview} className='green-link' style={{ fontSize: '1.2rem', fontWeight: '500' }}>Sign in</Link> first.</p>
                         }
                     </div>
 
                     <div style={{ width: '50%', display: 'flex', justifyContent: 'end' }}>
                         <div className='rating-stars'>
-                            <FaRegStar></FaRegStar>
-                            <FaRegStar></FaRegStar>
-                            <FaRegStar></FaRegStar>
-                            <FaRegStar></FaRegStar>
-                            <FaRegStar></FaRegStar>
+                            <FaRegStar onClick={handleAddReview}></FaRegStar>
+                            <FaRegStar onClick={handleAddReview}></FaRegStar>
+                            <FaRegStar onClick={handleAddReview}></FaRegStar>
+                            <FaRegStar onClick={handleAddReview}></FaRegStar>
+                            <FaRegStar onClick={handleAddReview}></FaRegStar>
                         </div>
                     </div>
 
-                    <textarea style={{ width: '100%' }} className='review-input' name='review' placeholder='How was your experience? (optional)'></textarea>
+                    <textarea onClick={handleAddReview} style={{ width: '100%' }} className='review-input' name='review' placeholder='How was your experience? (optional)'></textarea>
 
                 </div>
+
             </div>
+
+            <ReviewModal reviewModalOpen={reviewModalOpen} setReviewModalOpen={setReviewModalOpen}></ReviewModal>
         </div>
     );
 };
