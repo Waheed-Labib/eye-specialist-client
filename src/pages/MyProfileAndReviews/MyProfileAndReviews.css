@@ -1,0 +1,31 @@
+.profile-section {
+    width: 50%;
+    border: 2px solid rgb(1, 101, 1);
+    border-radius: 10px;
+    background: url(../../assets/images/banner/home/home-banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile-section h3 {
+    color: #464646;
+}
+
+.profile-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-div img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width:768px) {
+    .profile-section {
+        width: 80%;
+    }
+}

@@ -116,7 +116,7 @@ const NavBar = () => {
                                             to='/my-profile-and-reviews'>
                                             <div className='menu-option'>
                                                 <FaStar></FaStar>
-                                                <p>My Profile & Reviews</p>
+                                                <p>My Reviews & Profile</p>
                                             </div>
                                         </Link>
 
