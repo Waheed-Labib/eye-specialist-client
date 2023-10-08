@@ -8,6 +8,33 @@
     background-color: rgb(255, 255, 255, 0.9);
 }
 
+.show-all-services-link {
+    margin-top: 1%;
+    margin-left: 40%;
+    text-decoration: none;
+    color: rgb(1, 101, 1);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.show-all-services-link p {
+    margin: 0;
+}
+
+.show-all-services-link:hover {
+    font-size: 1.35rem;
+}
+
+.show-all-services-link:hover p {
+    text-decoration: underline;
+}
+
+
 @media screen and (max-width:960px) {
     .rating-and-review-section {
         z-index: 3;

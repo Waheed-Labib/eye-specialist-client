@@ -63,10 +63,6 @@
     cursor: pointer;
 }
 
-.review-modal-rating-stars {
-    justify-content: center;
-}
-
 .submit-review-btn {
     width: 20%;
     height: 45px;

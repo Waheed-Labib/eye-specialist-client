@@ -4,13 +4,14 @@ import { FaRegStar } from 'react-icons/fa';
 import { AuthContext } from '../../../../contexts/AuthProvider';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import ReviewModal from './ReviewModal/ReviewModal';
+import RatingStars from './RatingStars/RatingStars';
 
-const RateAndReview = ({ service }) => {
+const RateAndReview = ({ service, reviews, setReviews }) => {
 
     const { user } = useContext(AuthContext);
     const location = useLocation();
-    console.log(location);
 
+    const [selectedStar, setSelectedStar] = useState(null);
     const [reviewModalOpen, setReviewModalOpen] = useState(false);
     const [navigateToLogin, setNavigateToLogin] = useState(false);
 
@@ -47,14 +48,11 @@ const RateAndReview = ({ service }) => {
                         }
                     </div>
 
-                    <div style={{ width: '50%', display: 'flex', justifyContent: 'end' }}>
-                        <div className='rating-stars'>
-                            <FaRegStar onClick={handleAddReview}></FaRegStar>
-                            <FaRegStar onClick={handleAddReview}></FaRegStar>
-                            <FaRegStar onClick={handleAddReview}></FaRegStar>
-                            <FaRegStar onClick={handleAddReview}></FaRegStar>
-                            <FaRegStar onClick={handleAddReview}></FaRegStar>
-                        </div>
+                    <div onClick={handleAddReview} style={{ width: '50%', display: 'flex', justifyContent: 'end' }}>
+                        <RatingStars
+                            selectedStar={selectedStar}
+                            setSelectedStar={setSelectedStar}
+                        ></RatingStars>
                     </div>
 
                     <textarea onClick={handleAddReview} style={{ width: '100%' }} className='review-input' name='review' placeholder='How was your experience? (optional)'></textarea>
@@ -63,7 +61,15 @@ const RateAndReview = ({ service }) => {
 
             </div>
 
-            <ReviewModal reviewModalOpen={reviewModalOpen} setReviewModalOpen={setReviewModalOpen}></ReviewModal>
+            <ReviewModal
+                service={service}
+                reviewModalOpen={reviewModalOpen}
+                setReviewModalOpen={setReviewModalOpen}
+                selectedStar={selectedStar}
+                setSelectedStar={setSelectedStar}
+                reviews={reviews}
+                setReviews={setReviews}
+            ></ReviewModal>
         </div>
     );
 };

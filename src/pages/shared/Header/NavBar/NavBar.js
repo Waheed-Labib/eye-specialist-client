@@ -113,10 +113,10 @@ const NavBar = () => {
                                         <Link
                                             onClick={() => setMenuOpen(false)}
                                             className={`menu-option-link ${activatedPage === '/my-reviews' && 'activated-link'}`}
-                                            to='/my-reviews'>
+                                            to='/my-profile-and-reviews'>
                                             <div className='menu-option'>
                                                 <FaStar></FaStar>
-                                                <p>My Reviews</p>
+                                                <p>My Profile & Reviews</p>
                                             </div>
                                         </Link>
 

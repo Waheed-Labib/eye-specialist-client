@@ -3,7 +3,7 @@
     z-index: 2;
     border: 1px solid #606060;
     border-radius: 25px;
-    height: 375px;
+    height: 390px;
     width: 325px;
     box-shadow: 4px 4px 4px rgb(1, 101, 1);
     background-color: white;
@@ -74,7 +74,7 @@
 }
 
 .service-card-price {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #606060;
     margin: 0;
@@ -89,4 +89,5 @@
     color: rgb(1, 101, 1);
     font-weight: 600;
     transition: 0.3s;
+    margin-top: 15px;
 }

@@ -4,10 +4,11 @@ import { FaStar } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Overlay } from 'react-bootstrap';
+import ShowRating from '../../../ServiceDetails/ShowRating/ShowRating';
 
 const ServiceCard = ({ service }) => {
 
-    const { _id, name, image, description, price } = service;
+    const { _id, name, image, description, price, rating } = service;
     const [hoverImage, setHoverImage] = useState(false)
 
     return (
@@ -36,13 +37,7 @@ const ServiceCard = ({ service }) => {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div>
                             <p className='service-card-price'>{price} $</p>
-                            <div style={{ color: 'rgb(1,101,1)' }}>
-                                <FaStar></FaStar>
-                                <FaStar></FaStar>
-                                <FaStar></FaStar>
-                                <FaStar></FaStar>
-                                <FaStar></FaStar>
-                            </div>
+                            <ShowRating rating={rating} ratingPosition={'service-details'}></ShowRating>
                         </div>
 
                         <button className='service-card-button'>Details</button>

@@ -6,8 +6,11 @@ import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { v4 } from 'uuid';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const UploadUserImage = ({ setUploadUserImageOpen }) => {
+
+    const navigate = useNavigate();
 
     const inputRef = useRef(null);
     const [image, setImage] = useState('');
@@ -46,12 +49,14 @@ const UploadUserImage = ({ setUploadUserImageOpen }) => {
                                 )
 
                                 setUploadUserImageOpen(false)
+                                navigate('/');
                             })
                             .catch(err => {
                                 <div className='toast toast-error'>
                                     <p>Something Went Wrong adding the image.</p>
                                 </div>
                             })
+
                     })
             })
             .catch(() => {
@@ -64,12 +69,17 @@ const UploadUserImage = ({ setUploadUserImageOpen }) => {
 
     }
 
+    const handleSkipImageUpload = () => {
+        setUploadUserImageOpen(false)
+        navigate('/');
+    }
+
     return (
         <div className='upload-user-image-modal'>
             <div className='upload-user-image-content'>
                 <div style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', alignItems: 'center', paddingInline: '2%' }}>
                     <h1 style={{ color: '#464646' }}>Upload Your Image</h1>
-                    <button onClick={() => setUploadUserImageOpen(false)} className='skip-btn'>Skip</button>
+                    <button onClick={handleSkipImageUpload} className='skip-btn'>Skip</button>
                 </div>
 
                 {

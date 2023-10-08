@@ -4,11 +4,11 @@ import Home from "../pages/Home/Home/Home";
 import Signin from "../pages/Signin/Signin";
 import CreateAccount from "../pages/CreateAccount/CreateAccount";
 import Blog from "../pages/Blog/Blog";
-import MyRevies from "../pages/MyReviews/MyRevies";
 import AddService from "../pages/AddService/AddService";
 import Services from "../pages/Services/Services";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
+import MyProfileAndReviews from "../pages/MyProfileAndReviews/MyProfileAndReviews";
 
 export const routes = createBrowserRouter([
     {
@@ -42,8 +42,8 @@ export const routes = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
-                path: '/my-reviews',
-                element: <MyRevies></MyRevies>
+                path: '/my-profile-and-reviews',
+                element: <MyProfileAndReviews></MyProfileAndReviews>
             },
             {
                 path: '/add-service',

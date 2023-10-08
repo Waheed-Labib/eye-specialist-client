@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './CreateAccount.css'
 import eyeCheckUp from '../../assets/images/sign in/eye-check-up-vector.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
@@ -60,6 +60,7 @@ const CreateAccount = () => {
                 form.reset();
 
                 setUploadUserImageOpen(true);
+
             })
             .catch(err => toast.error(
                 <p className='toast toast-error'>{err.message}</p>
