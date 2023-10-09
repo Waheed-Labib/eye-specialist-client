@@ -1,31 +1,13 @@
-.profile-section {
-    width: 50%;
-    border: 2px solid rgb(1, 101, 1);
-    border-radius: 10px;
-    background: url(../../assets/images/banner/home/home-banner.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.my-reviews-and-profile-page-container {
+    background: url('../../assets/images/my-reviews/my-reviews-page-bg.jpg');
 }
 
-.profile-section h3 {
-    color: #464646;
-}
-
-.profile-div {
+.my-reviews-and-profile-page {
+    padding: 2%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-
-.profile-div img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-}
-
-@media screen and (max-width:768px) {
-    .profile-section {
-        width: 80%;
-    }
+    gap: 5%;
+    background: rgba(255, 255, 255, 0.8);
 }

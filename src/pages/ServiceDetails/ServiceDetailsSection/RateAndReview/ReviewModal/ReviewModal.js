@@ -28,6 +28,7 @@ const ReviewModal = ({ service, selectedStar, setSelectedStar, reviewModalOpen, 
 
         // add review and rating to the ratings in database
         const newReview = {
+            userId: user?.uid,
             userName: user?.displayName,
             userImage: user?.photoURL,
             serviceId: service?._id,

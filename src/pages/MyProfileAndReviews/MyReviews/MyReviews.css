@@ -1,0 +1,15 @@
+.my-reviews-section {
+    width: 60%;
+    border: 2px solid rgb(1, 101, 1);
+    border-radius: 10px;
+    background: url(../../../assets/images/banner/home/home-banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width:768px) {
+    .my-reviews-section {
+        width: 90%;
+    }
+}

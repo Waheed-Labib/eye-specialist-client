@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './RatingsAndReviews.css'
 import Review from './Review/Review';
 
@@ -12,13 +12,21 @@ const RatingsAndReviews = ({ service, reviews, setReviews }) => {
 
     return (
         <div className='section ratings-and-reviews-section'>
-            <h1 style={{ marginBottom: '5%' }} className='section-heading'>Ratings and Reviews</h1>
+            <h1 className='section-heading ratings-and-reviews-section-heading'>Ratings and Reviews</h1>
 
-            <div style={{ display: 'flex', gap: '5%', flexWrap: 'wrap' }}>
-                {
-                    reviews.map(review => <Review key={review._id} review={review} index={reviews.indexOf(review)}></Review>)
-                }
-            </div>
+            {
+                reviews.length ?
+                    <div style={{ display: 'flex', gap: '5%', flexWrap: 'wrap' }}>
+                        {
+                            reviews.map(review => <Review key={review._id} review={review} index={reviews.indexOf(review)}></Review>)
+                        }
+                    </div>
+                    :
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10%' }}>
+                        <p style={{ fontSize: '2rem', fontStyle: 'italic' }}>No Reviews were added to this service ..</p>
+                    </div>
+            }
+
 
         </div>
     );

@@ -63,7 +63,7 @@
 
 @media screen and (min-width:768px) {
     .full-review {
-        width: 95%;
+        width: 90%;
     }
 
     .full-review .review-top-section {
@@ -82,6 +82,6 @@
 
 @media screen and (max-width:768px) {
     .review {
-        width: 90%;
+        width: 100%;
     }
 }

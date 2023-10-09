@@ -25,7 +25,7 @@ const ShowRating = ({ rating, ratingPosition }) => {
     }
 
     return <div style={{ display: 'flex', alignItems: 'center' }}>
-        {stars} <h1 style={{ margin: '0', marginLeft: '16px', fontSize: '1.5rem' }} className={`${ratingPosition === 'service-details' ? 'green-star' : 'd-none'}`}>{rating}</h1>
+        {stars} <h1 style={{ margin: '0', marginLeft: '16px', fontSize: '1.2rem' }} className={`${ratingPosition === 'service-details' ? 'green-star' : 'd-none'}`}>{rating}</h1>
     </div>;
 };
 
