@@ -1,0 +1,48 @@
+.my-review-container {
+    margin: 2%;
+    margin-bottom: 5%;
+    padding: 4%;
+    border: 1px solid rgb(1, 101, 1);
+    position: relative;
+    border-radius: 5px;
+}
+
+.my-review {
+    padding: 4%;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #464646;
+}
+
+.my-review-icons {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+}
+
+.my-review-icon {
+    width: 30px;
+    height: 30px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 50%;
+    border-top: 2px solid #464646;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: -10%;
+    right: 11%;
+}
+
+.edit-tooltip {
+    background-color: white;
+    border: 1px solid #464646;
+    color: #464646;
+}
+
+.delete-tooltip {
+    background-color: white;
+    border: 1px solid maroon;
+    color: maroon;
+}

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import './MyReviews.css'
 import { FaStar } from 'react-icons/fa';
+import MyReview from './MyReview/MyReview';
 
 const MyReviews = () => {
 
@@ -24,7 +25,7 @@ const MyReviews = () => {
                 myReviews.length ?
                     <div>
                         {
-                            myReviews.map(myReview => <p>{myReview.review}</p>)
+                            myReviews.map(myReview => <MyReview key={myReviews.indexOf(myReview)} myReview={myReview}></MyReview>)
                         }
                     </div>
                     :
