@@ -58,16 +58,11 @@ const EditReview = ({ myReview, setEditReview, myReviews, setMyReviews }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged === true) {
-                    toast.success(
-                        <div className='toast toast-success'>
-                            <p>Updated your feedback.</p>
-                        </div>)
+
+                    // setMyReviews([...reviews, newReview])
+                    const updatedMyReviews = myReviews.filter(review => myReview._id !== review._id)
+                    setMyReviews([updatedReview, ...updatedMyReviews])
                 }
-
-                // setMyReviews([...reviews, newReview])
-                const updatedMyReviews = myReviews.filter(review => myReview._id !== review._id)
-                setMyReviews([...updatedMyReviews, updatedReview])
-
             })
             .catch((err) => {
                 toast.error(
@@ -81,7 +76,7 @@ const EditReview = ({ myReview, setEditReview, myReviews, setMyReviews }) => {
 
         // count average rating of the servie and add this to the particular service details
 
-        const updatedRating = updateAvgRating(myReview.rating, selectedStar, service?.rating, service?.ratingCount);
+        const updatedRating = updateAvgRating(myReview?.rating, selectedStar, service?.rating, service?.ratingCount);
 
         const newService = {
             _id: service?._id,
@@ -105,7 +100,7 @@ const EditReview = ({ myReview, setEditReview, myReviews, setMyReviews }) => {
                 if (data.acknowledged === true) {
                     toast.success(
                         <div className='toast toast-success'>
-                            <p>Your feedback is added to the page.</p>
+                            <p>Your feedback is updated.</p>
                         </div>)
                 }
 

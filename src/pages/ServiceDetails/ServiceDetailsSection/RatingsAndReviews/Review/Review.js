@@ -1,8 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Review.css'
 import ShowRating from '../../../ShowRating/ShowRating';
+import { AuthContext } from '../../../../../contexts/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Review = ({ review, index }) => {
+
+    const { user } = useContext(AuthContext);
+
+    let isMyReview;
+    if (review?.userId === user?.uid) isMyReview = true;
 
     const [showFullReview, setShowFullReview] = useState(false);
 
@@ -43,6 +50,14 @@ const Review = ({ review, index }) => {
             <div className='review-top-section'>
                 <img src={review.userImage} alt=''></img>
                 <p>{review.userName}</p>
+
+                {
+                    isMyReview &&
+                    <Link to='/my-profile-and-reviews' style={{ color: 'white' }}>
+                        <small>Visit profile to edit or remove it.</small>
+                    </Link>
+                }
+
             </div>
 
             <div className='review-center-section'>

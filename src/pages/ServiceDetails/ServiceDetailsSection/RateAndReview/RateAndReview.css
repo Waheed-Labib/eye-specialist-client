@@ -22,6 +22,7 @@
     margin: 0;
 }
 
+.rate-and-review-div h2,
 .rate-and-review-div h3 {
     color: rgb(1, 101, 1);
     margin-bottom: 10px;
@@ -35,6 +36,13 @@
     flex-wrap: wrap;
     align-items: center;
     border-radius: 5px;
+}
+
+.user-profile-link {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    color: rgb(1, 101, 1);
 }
 
 .rate-and-review-box img {
@@ -72,6 +80,15 @@
     .rate-and-review-div :nth-child(n) {
         width: 100%;
         margin-bottom: 5%;
+    }
+
+    .user-profile-link {
+        width: 100%;
+    }
+
+    .rating-stars {
+        width: 100%;
+        justify-content: center;
     }
 
 }

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
-import './RateAndReview.css'
-import { FaRegStar } from 'react-icons/fa';
+import './RateAndReview.css';
 import { AuthContext } from '../../../../contexts/AuthProvider';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import ReviewModal from './ReviewModal/ReviewModal';
 import RatingStars from './RatingStars/RatingStars';
+import MyReview from '../../../MyProfileAndReviews/MyReviews/MyReview/MyReview';
 
 const RateAndReview = ({ service, reviews, setReviews }) => {
 
@@ -14,6 +14,8 @@ const RateAndReview = ({ service, reviews, setReviews }) => {
     const [selectedStar, setSelectedStar] = useState(null);
     const [reviewModalOpen, setReviewModalOpen] = useState(false);
     const [navigateToLogin, setNavigateToLogin] = useState(false);
+
+    const alreadyReviewed = reviews.find(review => review?.userId === user?.uid);
 
     const handleAddReview = () => {
         // if login, show review modal
@@ -30,25 +32,32 @@ const RateAndReview = ({ service, reviews, setReviews }) => {
             <h1 style={{ marginBottom: '5%' }} className='section-heading'>Rate and Review</h1>
             <div className='rate-and-review-div'>
                 <div style={{ paddingLeft: '16px', paddingTop: '8px' }}>
+
                     <h3>Have you experienced {service?.name} treatment from Dr. Bean?</h3>
                     <p>You can rate him and add a review.</p>
+
+
                 </div>
 
                 <div className='rate-and-review-box'>
 
-                    <div style={{ width: '50%', display: 'flex', alignItems: 'center', color: 'rgb(1,101,1)' }}>
+                    <div className='user-profile-link'>
+
                         {
                             user ?
-                                <>
+                                <Link
+                                    to='/my-profile-and-reviews'
+                                    style={{ display: 'flex', alignItems: 'center', gap: '1%', margin: '0', padding: '0' }}
+                                    className='green-link link-without-underline'>
                                     <img style={{ height: '45px', width: '45px' }} src={user?.photoURL} alt=''></img>
                                     <h4 style={{ fontSize: '1.25rem' }}>{user?.displayName}</h4>
-                                </>
+                                </Link>
                                 :
                                 <p style={{ color: '#464646' }}>You have to <Link onClick={handleAddReview} className='green-link' style={{ fontSize: '1.2rem', fontWeight: '500' }}>Sign in</Link> first.</p>
                         }
                     </div>
 
-                    <div onClick={handleAddReview} style={{ width: '50%', display: 'flex', justifyContent: 'end' }}>
+                    <div onClick={handleAddReview} style={{ display: 'flex', justifyContent: 'end' }}>
                         <RatingStars
                             selectedStar={selectedStar}
                             setSelectedStar={setSelectedStar}
@@ -56,6 +65,8 @@ const RateAndReview = ({ service, reviews, setReviews }) => {
                     </div>
 
                     <textarea onClick={handleAddReview} style={{ width: '100%' }} className='review-input' name='review' placeholder='How was your experience? (optional)'></textarea>
+
+
 
                 </div>
 

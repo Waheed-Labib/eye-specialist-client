@@ -4,10 +4,11 @@ import { FaEdit } from 'react-icons/fa';
 import { AiOutlineDelete, AiTwotoneDelete } from 'react-icons/ai';
 import './MyReview.css'
 import EditReview from './EditReview/EditReview';
+import { Link } from 'react-router-dom';
 
 const MyReview = ({ myReview, myReviews, setMyReviews }) => {
 
-    const { serviceName, rating, review } = myReview;
+    const { serviceId, serviceName, rating, review } = myReview;
 
     const reviewParagraphs = review.split('\n\n');
 
@@ -18,7 +19,9 @@ const MyReview = ({ myReview, myReviews, setMyReviews }) => {
     return (
         <div className='my-review-container'>
             <div className='my-review'>
-                <h2 style={{ color: 'rgb(1,101,1)' }}>{serviceName}</h2>
+                <Link className='green-link link-without-underline' to={`/service-details/${serviceId}`}>
+                    <h2 style={{ color: 'rgb(1,101,1)' }}>{serviceName}</h2>
+                </Link>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <p style={{ color: '#464646' }}>10-01-2021</p>
                     <ShowRating rating={rating} ratingPosition='service-details'></ShowRating>
