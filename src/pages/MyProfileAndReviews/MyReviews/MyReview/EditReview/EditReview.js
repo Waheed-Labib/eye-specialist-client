@@ -6,20 +6,13 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../../contexts/AuthProvider';
 import { updateAvgRating } from '../../../../../utilities/UpdateAvgRating';
 
-const EditReview = ({ myReview, setEditReview, myReviews, setMyReviews }) => {
+const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews }) => {
 
     const { user } = useContext(AuthContext)
 
     const { serviceId, serviceName, rating, review } = myReview;
 
     const [selectedStar, setSelectedStar] = useState(rating);
-    const [service, setService] = useState(null)
-
-    useEffect(() => {
-        fetch(`https://eye-specialist-server.vercel.app/services/${serviceId}`)
-            .then(res => res.json())
-            .then(data => setService(data))
-    }, [serviceId])
 
     const handleUpdateReview = event => {
 
