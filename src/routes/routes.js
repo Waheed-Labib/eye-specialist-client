@@ -9,6 +9,7 @@ import Services from "../pages/Services/Services";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import MyProfileAndReviews from "../pages/MyProfileAndReviews/MyProfileAndReviews";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -43,11 +44,11 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/my-profile-and-reviews',
-                element: <MyProfileAndReviews></MyProfileAndReviews>
+                element: <PrivateRoute><MyProfileAndReviews></MyProfileAndReviews></PrivateRoute>
             },
             {
                 path: '/add-service',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: '*',

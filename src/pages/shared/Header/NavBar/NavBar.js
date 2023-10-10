@@ -6,6 +6,7 @@ import { AuthContext } from '../../../../contexts/AuthProvider';
 import { FaHome, FaPen, FaPlusSquare, FaRegListAlt, FaSignInAlt, FaSignOutAlt, FaStar, FaUserAlt, FaUserPlus } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import { Link, useLocation } from 'react-router-dom';
+import { stopPropagation } from '../../../../utilities/StopPropagation';
 
 const NavBar = () => {
 
@@ -20,14 +21,11 @@ const NavBar = () => {
         logOut()
             .then(() => {
                 toast.success('Sign Out Successful')
+                setMenuOpen(false)
             })
             .catch(() => {
                 toast.error('Something Went Wrong')
             })
-    }
-
-    const stopPropagation = event => {
-        event.stopPropagation()
     }
 
     return (

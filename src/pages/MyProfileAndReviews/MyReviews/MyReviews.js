@@ -25,7 +25,7 @@ const MyReviews = () => {
                 myReviews.length ?
                     <div>
                         {
-                            myReviews.map(myReview => <MyReview key={myReviews.indexOf(myReview)} myReview={myReview}></MyReview>)
+                            myReviews.map(myReview => <MyReview key={myReviews.indexOf(myReview)} myReview={myReview} myReviews={myReviews} setMyReviews={setMyReviews}></MyReview>)
                         }
                     </div>
                     :

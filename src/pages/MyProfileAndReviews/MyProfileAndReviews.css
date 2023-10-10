@@ -11,3 +11,11 @@
     gap: 5%;
     background: rgba(255, 255, 255, 0.8);
 }
+
+@media screen and (max-width:768px) {
+    .my-reviews-and-profile-page {
+        padding: 10%;
+        padding-inline: 4%;
+        gap: 10%;
+    }
+}

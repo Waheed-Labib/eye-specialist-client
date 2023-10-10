@@ -11,38 +11,48 @@
     padding: 4%;
     background-color: white;
     border-radius: 5px;
-    border: 1px solid #464646;
+    border: 2px solid #464646;
 }
 
 .my-review-icons {
     position: absolute;
-    bottom: 0;
+    bottom: 0%;
     right: 10%;
 }
 
 .my-review-icon {
-    width: 30px;
-    height: 30px;
-    padding: 15px;
+    width: 25px;
+    height: 25px;
+    padding: 12px;
     background-color: white;
     border-radius: 50%;
-    border-top: 2px solid #464646;
+
 }
 
-.tooltip {
-    position: absolute;
-    bottom: -10%;
-    right: 11%;
-}
-
-.edit-tooltip {
-    background-color: white;
-    border: 1px solid #464646;
+.edit-icon {
     color: #464646;
+    border-top: 3px solid #464646;
+    margin-right: 8px;
 }
 
-.delete-tooltip {
-    background-color: white;
-    border: 1px solid maroon;
+.delete-icon {
     color: maroon;
+    border-top: 3px solid maroon;
+}
+
+.edit-icon:hover {
+    color: black;
+    border-top: 3px solid black;
+
+}
+
+.delete-icon:hover {
+    color: red;
+    border-top: 3px solid red;
+}
+
+@media screen and (max-width:768px) {
+    .my-review-container {
+        margin: 1%;
+    }
 }
