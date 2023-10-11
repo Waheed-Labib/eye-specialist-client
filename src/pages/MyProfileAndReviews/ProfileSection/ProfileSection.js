@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEdit, FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../../contexts/AuthProvider';
-import './ProfileSection.css'
+import './ProfileSection.css';
+import EditProfileModal from './EditProfileModal/EditProfileModal';
 
 const ProfileSection = () => {
 
     const { user } = useContext(AuthContext)
+    console.log(user?.photoURL)
+
+    const [editUserProfile, setEditUserProfile] = useState(false);
 
     return (
         <div className='section profile-section'>
@@ -18,7 +22,7 @@ const ProfileSection = () => {
             <div className='profile-div'>
                 <p>Name : </p>
                 <h3>{user?.displayName}</h3>
-                <div style={{ color: 'rgb(1,101,1)', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                <div className='cursor-pointer-underline-on-hover' onClick={() => setEditUserProfile(true)} style={{ color: 'rgb(1,101,1)', display: 'flex', alignItems: 'center', gap: '5px' }}>
                     <p>edit</p>
                     <FaEdit></FaEdit>
                 </div>
@@ -34,7 +38,7 @@ const ProfileSection = () => {
                         <FaUser></FaUser>
                 }
 
-                <div style={{ color: 'rgb(1,101,1)', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                <div className='cursor-pointer-underline-on-hover' onClick={() => setEditUserProfile(true)} style={{ color: 'rgb(1,101,1)', display: 'flex', alignItems: 'center', gap: '5px' }}>
                     <p>edit</p>
                     <FaEdit ></FaEdit>
                 </div>
@@ -43,8 +47,13 @@ const ProfileSection = () => {
             <div className='profile-div'>
                 <p>Email : </p>
                 <h3 className='email'>{user?.email}</h3>
-                <p style={{ color: 'rgb(1,101,1)', textDecoration: 'underline' }}>Verify Email</p>
+                <p className='cursor-pointer-underline-on-hover' style={{ color: 'rgb(1,101,1)' }}>Verify Email</p>
             </div>
+
+            {
+                editUserProfile &&
+                <EditProfileModal editUserProfile={editUserProfile} setEditUserProfile={setEditUserProfile}></EditProfileModal>
+            }
         </div>
     );
 };

@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthProvider';
+import React from 'react';
 import './MyProfileAndReviews.css'
 import ProfileSection from './ProfileSection/ProfileSection';
 import MyReviews from './MyReviews/MyReviews';
@@ -7,8 +6,6 @@ import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 
 const MyProfileAndReviews = () => {
-
-    const { user } = useContext(AuthContext)
 
     return (
         <div className='my-reviews-and-profile-page-container'>

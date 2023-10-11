@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import RatingStars from '../../../../ServiceDetails/ServiceDetailsSection/RateAndReview/RatingStars/RatingStars';
 import { AiOutlineDelete } from 'react-icons/ai';
 import './EditReview.css'
@@ -52,9 +52,10 @@ const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews 
             .then(data => {
                 if (data.acknowledged === true) {
 
-                    // setMyReviews([...reviews, newReview])
-                    const updatedMyReviews = myReviews.filter(review => myReview._id !== review._id)
-                    setMyReviews([updatedReview, ...updatedMyReviews])
+                    fetch(`https://eye-specialist-server.vercel.app/user-reviews/${user?.uid}`)
+                        .then(res => res.json())
+                        .then(data => setMyReviews(data))
+
                 }
             })
             .catch((err) => {

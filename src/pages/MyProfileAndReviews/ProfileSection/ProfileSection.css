@@ -24,6 +24,11 @@
     border-radius: 50%;
 }
 
+.cursor-pointer-underline-on-hover:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 @media screen and (max-width:768px) {
     .profile-section {
         width: 90%;
