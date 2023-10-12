@@ -10,15 +10,18 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import MyProfileAndReviews from "../pages/MyProfileAndReviews/MyProfileAndReviews";
 import PrivateRoute from "./PrivateRoute";
+import CheckYourInternetConnection from "../pages/CheckYourInternertConnection/CheckYourInternetConnection";
 
 export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <CheckYourInternetConnection></CheckYourInternetConnection>,
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+
             },
             {
                 path: '/signin',
@@ -31,12 +34,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>,
-                loader: () => fetch('https://eye-specialist-server.vercel.app/services')
+                loader: () => fetch('https://eye-specialist-server.vercel.app/services'),
+
             },
             {
                 path: '/service-details/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`https://eye-specialist-server.vercel.app/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://eye-specialist-server.vercel.app/services/${params.id}`),
+
             },
             {
                 path: '/blog',

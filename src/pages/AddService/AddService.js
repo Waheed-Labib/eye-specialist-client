@@ -4,6 +4,7 @@ import { FaPlus } from 'react-icons/fa6'
 import toast from 'react-hot-toast';
 import UploadServiceImage from './UploadServiceImage/UploadServiceImage';
 import { Navigate } from 'react-router-dom';
+import Loading from '../shared/Loading/Loading';
 
 
 const AddService = () => {
@@ -11,6 +12,8 @@ const AddService = () => {
     const [photoUrl, setPhotoURL] = useState('');
     const [isAdded, setIsAdded] = useState(false);
     const [navigate, setNavigate] = useState(null);
+
+    const [addingService, setAddingService] = useState(false);
 
     useEffect(() => {
         if (isAdded) {
@@ -20,6 +23,7 @@ const AddService = () => {
                     // navigate to the last service in services, that means the recently added service
                     setNavigate(`/service-details/${data[data.length - 1]._id}`)
                 })
+                .catch(() => alert('Please check your internet connection, and then refresh page.'))
         }
     }, [isAdded])
 
@@ -50,6 +54,8 @@ const AddService = () => {
 
             return
         }
+
+        setAddingService(true);
 
         const service = {
             name,
@@ -87,45 +93,57 @@ const AddService = () => {
     if (navigate) return <Navigate to={navigate}></Navigate>
 
     return (
-        <form
-            onSubmit={handleAddService}
+        <form onSubmit={handleAddService}
             className='section add-service'>
-            <div>
-                <h1 className='section-heading'>Add A Service</h1>
+            {
+                addingService ?
+                    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                        <div style={{ width: '20%' }}>
+                            <Loading></Loading>
+                        </div>
+                    </div>
+                    :
+                    <>
+                        <div>
+                            <h1 className='section-heading'>Add A Service</h1>
 
-            </div>
+                        </div>
 
-            <div className='add-service-buttons add-service-buttons-md'>
-                <button type='submit' className='submit-btn'>
-                    <p>Add</p>
-                    <FaPlus></FaPlus>
-                </button>
-                <button className='reset-btn' type='reset'>Reset</button>
-            </div>
+                        <div className='add-service-buttons add-service-buttons-md'>
+                            <button type='submit' className='submit-btn'>
+                                <p>Add</p>
+                                <FaPlus></FaPlus>
+                            </button>
+                            <button className='reset-btn' type='reset'>Reset</button>
+                        </div>
 
-            <div>
-                <h3>Name of the Service</h3>
-                <input name='name' className='add-service-input' type='text' required></input>
-            </div>
+                        <div>
+                            <h3>Name of the Service</h3>
+                            <input name='name' className='add-service-input' type='text' required></input>
+                        </div>
 
-            <div>
-                <h3>Price</h3>
-                <input name='price' className='add-service-input' type='text' placeholder='$$$' required></input>
-            </div>
+                        <div>
+                            <h3>Price</h3>
+                            <input name='price' className='add-service-input' type='text' placeholder='$$$' required></input>
+                        </div>
 
-            <div>
-                <h3>Description</h3>
-                <textarea name='description' style={{ height: '90px' }} className='add-service-input' required></textarea>
-            </div>
+                        <div>
+                            <h3>Description</h3>
+                            <textarea name='description' style={{ height: '90px' }} className='add-service-input' required></textarea>
+                        </div>
 
-            <UploadServiceImage setPhotoURL={setPhotoURL} isAdded={isAdded}></UploadServiceImage>
+                        <UploadServiceImage setPhotoURL={setPhotoURL} isAdded={isAdded}></UploadServiceImage>
 
-            <div className='add-service-buttons add-service-buttons-sm'>
-                <button type='submit' className='submit-btn'>
-                    <p>Add Service</p>
-                </button>
-                <button className='reset-btn' type='reset'>Reset</button>
-            </div>
+                        <div className='add-service-buttons add-service-buttons-sm'>
+                            <button type='submit' className='submit-btn'>
+                                <p>Add Service</p>
+                            </button>
+                            <button className='reset-btn' type='reset'>Reset</button>
+                        </div>
+                    </>
+            }
+
+
         </form>
     );
 };

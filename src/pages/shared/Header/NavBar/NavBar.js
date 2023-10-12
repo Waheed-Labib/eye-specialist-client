@@ -7,6 +7,7 @@ import { FaHome, FaPen, FaPlusSquare, FaRegListAlt, FaSignInAlt, FaSignOutAlt, F
 import toast from 'react-hot-toast';
 import { Link, useLocation } from 'react-router-dom';
 import { stopPropagation } from '../../../../utilities/StopPropagation';
+import ButtonLoading from '../../ButtonLoading/ButtonLoading';
 
 const NavBar = () => {
 
@@ -15,7 +16,7 @@ const NavBar = () => {
 
     const activatedPage = useLocation().pathname;
 
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, loading } = useContext(AuthContext)
 
     const handleSignOut = () => {
         logOut()
@@ -168,8 +169,15 @@ const NavBar = () => {
                             {
                                 user &&
                                 <div onClick={handleSignOut} className='menu-option'>
-                                    <FaSignOutAlt></FaSignOutAlt>
-                                    <p>Sign Out</p>
+                                    {
+                                        loading ?
+                                            <ButtonLoading></ButtonLoading>
+                                            :
+                                            <>
+                                                <FaSignOutAlt></FaSignOutAlt>
+                                                <p>Sign Out</p>
+                                            </>
+                                    }
                                 </div>
                             }
 

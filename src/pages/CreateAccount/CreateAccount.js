@@ -13,6 +13,8 @@ const CreateAccount = () => {
 
     const [uploadUserImageOpen, setUploadUserImageOpen] = useState(false);
 
+    const [submitBtnClicked, setSubmitBtnClicked] = useState(false);
+
     const {
         user,
         loading,
@@ -23,6 +25,9 @@ const CreateAccount = () => {
 
     const handleCreateAccount = event => {
         event.preventDefault();
+
+        setSubmitBtnClicked(true);
+
         const form = event.target;
 
         const firstName = form.firstName.value;
@@ -62,9 +67,14 @@ const CreateAccount = () => {
                 setUploadUserImageOpen(true);
 
             })
-            .catch(err => toast.error(
-                <p className='toast toast-error'>{err.message}</p>
-            ))
+            .catch(err => {
+                setSubmitBtnClicked(false)
+                toast.error(
+                    <p className='toast toast-error'>{err.message}</p>
+                )
+            })
+
+
     }
 
     return (
@@ -91,7 +101,7 @@ const CreateAccount = () => {
                     </p>
 
 
-                    <SubmitButton text={'Create Account'}></SubmitButton>
+                    <SubmitButton text={'Create Account'} loading={loading} submitBtnClicked={submitBtnClicked}></SubmitButton>
 
 
                 </form>

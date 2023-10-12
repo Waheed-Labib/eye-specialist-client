@@ -3,16 +3,21 @@ import './ReviewModal.css'
 import { AuthContext } from '../../../../../contexts/AuthProvider';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import RatingStars from '../RatingStars/RatingStars';
-import toast from 'react-hot-toast';
+import toast, { LoaderIcon } from 'react-hot-toast';
 import { countAvgRating } from '../../../../../utilities/CountAvgRating';
+import Loading from '../../../../shared/Loading/Loading';
 
 const ReviewModal = ({ service, selectedStar, setSelectedStar, reviewModalOpen, setReviewModalOpen, reviews, setReviews }) => {
 
     const { user } = useContext(AuthContext);
 
+    const [addingReview, setAddingReview] = useState(false);
+
     const handleReviewSubmit = event => {
 
         event.preventDefault();
+
+        setAddingReview(true)
 
         if (!selectedStar) {
             toast.error(
@@ -104,12 +109,17 @@ const ReviewModal = ({ service, selectedStar, setSelectedStar, reviewModalOpen, 
                 }
 
                 setReviewModalOpen(false)
+                setAddingReview(false)
             })
-            .catch(() => toast.error(
-                <div className='toast toast-error'>
-                    <p>Something Went Wrong.</p>
-                </div>
-            ))
+            .catch(() => {
+                setAddingReview(false)
+                toast.error(
+                    <div className='toast toast-error'>
+                        <p>Something Went Wrong.</p>
+                    </div>
+
+                )
+            })
 
     }
 
@@ -121,37 +131,49 @@ const ReviewModal = ({ service, selectedStar, setSelectedStar, reviewModalOpen, 
         return (
             <div className='review-modal'>
                 <form onSubmit={handleReviewSubmit} onReset={handleReviewReset} className='review-modal-content'>
-                    <div className='review-modal-header'>
-                        <div>
-                            <img src={user?.photoURL} alt=''></img>
-                            <h4>{user?.displayName}</h4>
-                        </div>
+                    {
+                        addingReview ?
+                            <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                                <div style={{ width: '20%' }}>
+                                    <Loading></Loading>
+                                </div>
+                            </div>
+                            :
+                            <>
+                                <div className='review-modal-header'>
+                                    <div>
+                                        <img src={user?.photoURL} alt=''></img>
+                                        <h4>{user?.displayName}</h4>
+                                    </div>
 
 
-                        <span onClick={() => setReviewModalOpen(false)} className="close-review-modal">&times;</span>
-                    </div>
+                                    <span onClick={() => setReviewModalOpen(false)} className="close-review-modal">&times;</span>
+                                </div>
 
-                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                        <h4 style={{ margin: '0' }}>Rate Your Experience</h4>
-                        <RatingStars
-                            selectedStar={selectedStar}
-                            setSelectedStar={setSelectedStar}
-                        ></RatingStars>
-                    </div>
+                                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
+                                    <h4 style={{ margin: '0' }}>Rate Your Experience</h4>
+                                    <RatingStars
+                                        selectedStar={selectedStar}
+                                        setSelectedStar={setSelectedStar}
+                                    ></RatingStars>
+                                </div>
 
-                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'start', gap: '10px' }}>
-                        <h4 style={{ margin: '0' }}>Describe Your Experience. (Optional)</h4>
-                        <textarea style={{ width: '95%', margin: '0' }} className='review-input' name='review' placeholder='Your feelings, suggestions, or anything else.'></textarea>
-                    </div>
+                                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'start', gap: '10px' }}>
+                                    <h4 style={{ margin: '0' }}>Describe Your Experience. (Optional)</h4>
+                                    <textarea style={{ width: '95%', margin: '0' }} className='review-input' name='review' placeholder='Your feelings, suggestions, or anything else.'></textarea>
+                                </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', width: '100%', marginTop: '1%' }}>
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', width: '100%', marginTop: '1%' }}>
 
-                        <button type='submit' className='submit-review-btn'>Submit</button>
-                        <button type='reset' className='reset-review-btn'>Reset</button>
+                                    <button type='submit' className='submit-review-btn'>Submit</button>
+                                    <button type='reset' className='reset-review-btn'>Reset</button>
 
-                    </div>
-                </form>
-            </div>
+                                </div>
+                            </>
+                    }
+
+                </form >
+            </div >
         );
 };
 

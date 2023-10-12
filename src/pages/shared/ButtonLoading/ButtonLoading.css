@@ -1,0 +1,40 @@
+.btn-loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 5px soild rgba(255, 255, 255, 0.2);
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+    animation: btn-spin 1s linear 0s infinite;
+}
+
+@keyframes btn-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.submit-loading {
+    border: 5px soild rgba(255, 255, 255, 0.2);
+    border-top: 5px solid rgb(1, 101, 1);
+    border-right: 5px solid rgb(1, 101, 1);
+}
+
+.google-loading {
+    border: 5px soild rgba(255, 255, 255, 0.2);
+    border-top: 5px solid yellow;
+    border-right: 5px solid yellow;
+}
+
+.edit-profile-loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 5px soild rgba(255, 255, 255, 0.2);
+    border-top: 5px solid white;
+    border-right: 5px solid white;
+}

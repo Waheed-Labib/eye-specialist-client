@@ -6,6 +6,8 @@ import { StorageContext } from '../../../../contexts/StorageProvider';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import toast from 'react-hot-toast';
 import { v4 } from 'uuid';
+import ButtonLoading from '../../../shared/ButtonLoading/ButtonLoading';
+import Loading from '../../../shared/Loading/Loading';
 
 const EditProfileModal = ({ editUserProfile, setEditUserProfile }) => {
 
@@ -15,6 +17,9 @@ const EditProfileModal = ({ editUserProfile, setEditUserProfile }) => {
     const [isImageChanged, setIsImageChanged] = useState(false);
     const [image, setImage] = useState('');
     const [imageURL, setImageURL] = useState(user?.photoURL || uploadImage);
+
+
+    const [updatingChanges, setupdatingChanges] = useState(false);
 
     const inputImageRef = useRef(null);
 
@@ -33,6 +38,8 @@ const EditProfileModal = ({ editUserProfile, setEditUserProfile }) => {
 
     const handleEditProfile = event => {
         event.preventDefault()
+
+        setupdatingChanges(true)
 
         const name = event.target.name.value;
         let profile;
@@ -92,33 +99,52 @@ const EditProfileModal = ({ editUserProfile, setEditUserProfile }) => {
             ))
     }
 
+
+
     return (
         <div className='edit-profile-modal'>
             <form onSubmit={handleEditProfile} className='edit-profile-modal-content'>
 
+                {
+                    updatingChanges ?
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <div style={{ width: '20%' }}>
+                                <Loading></Loading>
+                            </div>
+                        </div>
 
-                <div>
-                    <h1 style={{ color: '#464646' }}>Edit Profile</h1>
-                    <span onClick={() => setEditUserProfile(false)} className="close-edit-profile-modal">&times;</span>
-                </div>
 
-                <div>
-                    <h3>Name : </h3>
-                    <input type='text' name='name' defaultValue={user?.displayName}></input>
-                </div>
+                        :
+                        <>
+                            <div>
+                                <h1 style={{ color: '#464646' }}>Edit Profile</h1>
+                                <span onClick={() => setEditUserProfile(false)} className="close-edit-profile-modal">&times;</span>
+                            </div>
 
-                <div>
-                    <h3>Image : </h3>
-                    <div onClick={handleImageClick} style={{ width: '75%' }}>
+                            <div>
+                                <h3>Name : </h3>
+                                <input type='text' name='name' defaultValue={user?.displayName}></input>
+                            </div>
 
-                        <img src={imageURL} alt=''></img>
+                            <div>
+                                <h3>Image : </h3>
+                                <div onClick={handleImageClick} style={{ width: '75%' }}>
 
-                        <input onChange={handleImageChange} type='file' ref={inputImageRef} style={{ display: 'none' }}></input>
-                    </div>
+                                    <img src={imageURL} alt=''></img>
 
-                </div>
+                                    <input onChange={handleImageChange} type='file' ref={inputImageRef} style={{ display: 'none' }}></input>
+                                </div>
 
-                <button type='submit'>Update Changes</button>
+                            </div>
+
+                            <button type='submit'>
+
+                                <p style={{ margin: '0' }}>Update Changes</p>
+
+
+                            </button>
+                        </>
+                }
             </form>
         </div>
     );

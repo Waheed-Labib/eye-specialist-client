@@ -5,6 +5,7 @@ import './EditReview.css'
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../../contexts/AuthProvider';
 import { updateAvgRating } from '../../../../../utilities/UpdateAvgRating';
+import Loading from '../../../../shared/Loading/Loading';
 
 const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews }) => {
 
@@ -14,9 +15,13 @@ const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews 
 
     const [selectedStar, setSelectedStar] = useState(rating);
 
+    const [updatingReview, setUpdatingReview] = useState(false)
+
     const handleUpdateReview = event => {
 
         event.preventDefault();
+
+        setUpdatingReview(true);
 
         if (!selectedStar) {
             toast.error(
@@ -55,7 +60,7 @@ const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews 
                     fetch(`https://eye-specialist-server.vercel.app/user-reviews/${user?.uid}`)
                         .then(res => res.json())
                         .then(data => setMyReviews(data))
-
+                        .catch(() => alert('Please Check Your Internet Connection.'))
                 }
             })
             .catch((err) => {
@@ -111,23 +116,35 @@ const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews 
     return (
         <div className='my-review-container'>
             <form onSubmit={handleUpdateReview} className='my-review'>
-                <h2 style={{ color: 'rgb(1,101,1)' }}>{serviceName}</h2>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <p style={{ color: '#464646' }}>10-01-2021</p>
-                    <RatingStars selectedStar={selectedStar} setSelectedStar={setSelectedStar}></RatingStars>
-                </div>
+                {
+                    updatingReview ?
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <div style={{ width: '20%' }}>
+                                <Loading></Loading>
+                            </div>
+                        </div>
+                        :
+                        <>
+                            <h2 style={{ color: 'rgb(1,101,1)' }}>{serviceName}</h2>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <p style={{ color: '#464646' }}>10-01-2021</p>
+                                <RatingStars selectedStar={selectedStar} setSelectedStar={setSelectedStar}></RatingStars>
+                            </div>
 
-                <textarea name='review' style={{ width: '100%', height: '100px', marginTop: '20px', outline: '2px solid rgb(1,101,1)', fontSize: '1.05rem' }} defaultValue={review}></textarea>
+                            <textarea name='review' style={{ width: '100%', height: '100px', marginTop: '20px', outline: '2px solid rgb(1,101,1)', fontSize: '1.05rem' }} defaultValue={review}></textarea>
 
-                <div style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', marginTop: '20px', gap: '10px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', marginTop: '20px', gap: '10px' }}>
 
-                    <button type='submit' className='edit-review-btn update-review-btn'>Update Review</button>
-                    <button className='edit-review-btn discard-review-btn' onClick={() => setEditReview(false)}>Discard Changes</button>
+                                <button type='submit' className='edit-review-btn update-review-btn'>Update Review</button>
+                                <button className='edit-review-btn discard-review-btn' onClick={() => setEditReview(false)}>Discard Changes</button>
 
-                    <div className='my-review-icons'>
-                        <AiOutlineDelete className='my-review-icon delete-icon'></AiOutlineDelete>
-                    </div>
-                </div>
+                                <div className='my-review-icons'>
+                                    <AiOutlineDelete className='my-review-icon delete-icon'></AiOutlineDelete>
+                                </div>
+                            </div>
+                        </>
+                }
+
             </form >
         </div >
     );

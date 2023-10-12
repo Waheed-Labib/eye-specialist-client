@@ -14,6 +14,8 @@ const Signin = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+    const [submitBtnClicked, setSubmitBtnClicked] = useState(false);
+
     const {
         user,
         loading,
@@ -26,6 +28,8 @@ const Signin = () => {
     const handleSignIn = event => {
 
         event.preventDefault();
+
+        setSubmitBtnClicked(true);
 
         const form = event.target;
         const email = form.email.value;
@@ -42,9 +46,12 @@ const Signin = () => {
                 form.reset()
                 navigate(from, { replace: true })
             })
-            .catch(err => toast.error(
-                <p className='toast toast-error'>{err.message}</p>
-            ))
+            .catch(err => {
+                setSubmitBtnClicked(false)
+                toast.error(
+                    <p className='toast toast-error' > {err.message}</p>
+                )
+            })
     }
 
     const [email, setEmail] = useState('')
@@ -83,7 +90,7 @@ const Signin = () => {
                     <input style={{ width: '190px' }} onChange={event => setEmail(event.target.value)} type='email' placeholder='Email' name='email' required />
                     <input style={{ width: '190px' }} type='password' placeholder='Password' name='password' required></input>
 
-                    <SubmitButton type='submit' text={'Sign In'}></SubmitButton>
+                    <SubmitButton type='submit' text={'Sign In'} loading={loading} submitBtnClicked={submitBtnClicked}></SubmitButton>
                 </form>
 
                 <Link style={{ marginBottom: '5px', marginTop: '5px' }} onClick={handleForgotPassword} className='yellow-link'>Forgot Password?</Link>

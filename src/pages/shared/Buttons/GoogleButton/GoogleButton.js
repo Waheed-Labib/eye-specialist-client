@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './GoogleButton.css'
 import { AuthContext } from '../../../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa'
 import { useLocation, useNavigate } from 'react-router-dom';
+import ButtonLoading from '../../ButtonLoading/ButtonLoading';
 
 const GoogleButton = () => {
 
@@ -13,7 +14,10 @@ const GoogleButton = () => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
+    const [googleBtnClicked, setGoogleBtnClicked] = useState(false)
+
     const handleGoogleSignin = () => {
+        setGoogleBtnClicked(true);
         googleSignIn()
             .then(result => {
                 const user = result.user;
@@ -27,17 +31,28 @@ const GoogleButton = () => {
 
                 navigate(from, { replace: true })
             })
-            .catch(err => toast.error(
-                <div className='toast toast-error'>
-                    <p>{err.message}</p>
-                </div>
-            ))
+            .catch(err => {
+                setGoogleBtnClicked(false)
+                toast.error(
+                    <div className='toast toast-error'>
+                        <p>{err.message}</p>
+                    </div>
+                )
+
+            })
     }
 
     return (
         <div onClick={handleGoogleSignin} className='google-button'>
-            <FaGoogle></FaGoogle>
-            <p>Sign in with Google</p>
+            {
+                loading && googleBtnClicked ?
+                    <ButtonLoading googleBtnClicked={googleBtnClicked}></ButtonLoading>
+                    :
+                    <>
+                        <FaGoogle></FaGoogle>
+                        <p>Sign in with Google</p>
+                    </>
+            }
         </div>
     );
 };

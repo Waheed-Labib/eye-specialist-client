@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import './ServiceDetails.css';
 import { Link, useLoaderData } from 'react-router-dom';
-import ShowAllServicesLink from '../shared/ShowAllServicesLink/ShowAllServicesLink';
 import ServiceDetailsSection from './ServiceDetailsSection/ServiceDetailsSection';
 import RateAndReview from './ServiceDetailsSection/RateAndReview/RateAndReview';
 import RatingsAndReviews from './ServiceDetailsSection/RatingsAndReviews/RatingsAndReviews';
 import { FaArrowRight } from 'react-icons/fa';
+import Loading from '../shared/Loading/Loading';
 
 const ServiceDetails = () => {
 
     const service = useLoaderData();
     const [reviews, setReviews] = useState([])
+
+    if (!service) return <Loading></Loading>
 
     return (
         <div className='service-details-page'>

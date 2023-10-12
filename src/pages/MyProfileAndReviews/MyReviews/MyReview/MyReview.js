@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { updateAvgRating } from '../../../../utilities/UpdateAvgRating';
 import { updateAvgRatingAfterDelete } from '../../../../utilities/UpdateAvgRatingAfterDelete';
+import Loading from '../../../shared/Loading/Loading';
 
 const MyReview = ({ myReview, myReviews, setMyReviews }) => {
 
@@ -19,17 +20,22 @@ const MyReview = ({ myReview, myReviews, setMyReviews }) => {
         fetch(`https://eye-specialist-server.vercel.app/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
+            .catch(() => alert('Please Check Your Internet Connection.'))
     }, [serviceId])
 
     const reviewParagraphs = review.split('\n\n');
 
     const [editReview, setEditReview] = useState(false);
 
+    const [deletingReview, setDeletingReview] = useState(false);
+
     const handleDeleteReview = () => {
 
         const agree = window.confirm('Delete the review?')
 
         if (!agree) return
+
+        setDeletingReview(true)
 
         fetch(`https://eye-specialist-server.vercel.app/reviews/${myReview?._id}`, {
             method: 'DELETE'
@@ -95,32 +101,44 @@ const MyReview = ({ myReview, myReviews, setMyReviews }) => {
     return (
         <div className='my-review-container'>
             <div className='my-review'>
-                <Link className='green-link link-without-underline' to={`/service-details/${serviceId}`}>
-                    <h2 style={{ color: 'rgb(1,101,1)' }}>{serviceName}</h2>
-                </Link>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <p style={{ color: '#464646' }}>10-01-2021</p>
-                    <ShowRating rating={rating} ratingPosition='service-details'></ShowRating>
-                </div>
-                <div style={{ fontSize: '1.1rem' }}>
-                    {
-                        reviewParagraphs.map(reviewParagraph => <p key={reviewParagraphs.indexOf(reviewParagraph)}>{reviewParagraph}</p>)
-                    }
-                </div>
+                {
+                    deletingReview ?
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <div style={{ width: '20%' }}>
+                                <Loading></Loading>
+                            </div>
+                        </div>
+                        :
+                        <>
+                            <Link className='green-link link-without-underline' to={`/service-details/${serviceId}`}>
+                                <h2 style={{ color: 'rgb(1,101,1)' }}>{serviceName}</h2>
+                            </Link>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <p style={{ color: '#464646' }}>10-01-2021</p>
+                                <ShowRating rating={rating} ratingPosition='service-details'></ShowRating>
+                            </div>
+                            <div style={{ fontSize: '1.1rem' }}>
+                                {
+                                    reviewParagraphs.map(reviewParagraph => <p key={reviewParagraphs.indexOf(reviewParagraph)}>{reviewParagraph}</p>)
+                                }
+                            </div>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
-                    <p style={{ color: '#464646' }}>reviewed by you</p>
+                                <p style={{ color: '#464646' }}>reviewed by you</p>
 
-                    <div className='my-review-icons'>
-                        <FaEdit onClick={() => setEditReview(true)} className='my-review-icon edit-icon'></FaEdit>
+                                <div className='my-review-icons'>
+                                    <FaEdit onClick={() => setEditReview(true)} className='my-review-icon edit-icon'></FaEdit>
 
-                        <AiOutlineDelete onClick={handleDeleteReview} className='my-review-icon delete-icon'></AiOutlineDelete>
+                                    <AiOutlineDelete onClick={handleDeleteReview} className='my-review-icon delete-icon'></AiOutlineDelete>
 
-                    </div>
+                                </div>
 
 
-                </div>
+                            </div>
+                        </>
+                }
+
             </div>
         </div>
     );

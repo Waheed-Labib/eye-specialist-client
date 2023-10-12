@@ -9,6 +9,8 @@ const Services = () => {
 
     const services = useLoaderData();
 
+    if (!services) return <Loading></Loading>
+
     return (
         <div>
             <ServicesSection services={services}></ServicesSection>
