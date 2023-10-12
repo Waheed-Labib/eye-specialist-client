@@ -1,0 +1,29 @@
+.no-internet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(158, 186, 158);
+}
+
+.no-internet img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #464646;
+}
+
+.no-internet h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #464646;
+    margin: 0;
+    margin-top: 5%;
+}
+
+.no-internet p {
+    font-size: 1.25rem;
+    margin: 0;
+    margin-top: 1%;
+}

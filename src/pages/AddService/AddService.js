@@ -48,7 +48,9 @@ const AddService = () => {
         if (!photoUrl) {
             toast.error(
                 <div className='toast toast-error'>
-                    <p>You have not uploaded an image. Or the format is not supported.</p>
+                    <h4>You have not uploaded an image.</h4>
+                    <h4>Or the format is not supported.</h4>
+                    <h4>Or you have lost your internet connection</h4>
                 </div>
             )
 
