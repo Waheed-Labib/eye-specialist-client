@@ -12,7 +12,7 @@ const MyProfileAndReviews = () => {
             <div className='my-reviews-and-profile-page'>
                 <ProfileSection></ProfileSection>
                 <MyReviews></MyReviews>
-                <Link style={{ marginTop: '10%' }} className='show-all-services-link' to='/services'>
+                <Link style={{ marginTop: '10%', marginBottom: '5%' }} className='show-all-services-link' to='/services'>
                     <p>Show All Services</p>
                     <FaArrowRight></FaArrowRight>
                 </Link>

@@ -25,9 +25,9 @@ const Home = () => {
         <div>
             <div className='home-page-services'>
                 <ServicesSection services={services} dataNotFound={dataNotFound}></ServicesSection>
+
                 <ShowAllServicesLink></ShowAllServicesLink>
             </div>
-
         </div>
     );
 };

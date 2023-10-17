@@ -2,9 +2,9 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 5px soild rgba(255, 255, 255, 0.2);
-    border-top: 5px solid black;
-    border-right: 5px solid black;
+    border: 3px soild rgba(255, 255, 255, 0.2);
+    border-top: 3px solid black;
+    border-right: 3px solid black;
     animation: btn-spin 1s linear 0s infinite;
 }
 
@@ -19,22 +19,13 @@
 }
 
 .submit-loading {
-    border: 5px soild rgba(255, 255, 255, 0.2);
-    border-top: 5px solid rgb(1, 101, 1);
-    border-right: 5px solid rgb(1, 101, 1);
+    border: 3px soild rgba(255, 255, 255, 0.2);
+    border-top: 3px solid rgb(1, 101, 1);
+    border-right: 3px solid rgb(1, 101, 1);
 }
 
 .google-loading {
-    border: 5px soild rgba(255, 255, 255, 0.2);
-    border-top: 5px solid yellow;
-    border-right: 5px solid yellow;
-}
-
-.edit-profile-loading {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 5px soild rgba(255, 255, 255, 0.2);
-    border-top: 5px solid white;
-    border-right: 5px solid white;
+    border: 3px soild rgba(255, 255, 255, 0.2);
+    border-top: 3px solid yellow;
+    border-right: 3px solid yellow;
 }

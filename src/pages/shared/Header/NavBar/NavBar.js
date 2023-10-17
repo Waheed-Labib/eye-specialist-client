@@ -158,10 +158,10 @@ const NavBar = () => {
                             <Link
                                 onClick={() => setMenuOpen(false)}
                                 className={`menu-option-link ${activatedPage === '/blog' && 'activated-link'}`}
-                                to='/blog'>
+                                to='/blogs'>
                                 <div className='menu-option'>
                                     <FaPen></FaPen>
-                                    <p>Blog</p>
+                                    <p>Blogs</p>
                                 </div>
                             </Link>
 

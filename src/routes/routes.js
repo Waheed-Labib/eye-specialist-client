@@ -3,7 +3,6 @@ import Main from "../layouts/Main/Main";
 import Home from "../pages/Home/Home/Home";
 import Signin from "../pages/Signin/Signin";
 import CreateAccount from "../pages/CreateAccount/CreateAccount";
-import Blog from "../pages/Blog/Blog";
 import AddService from "../pages/AddService/AddService";
 import Services from "../pages/Services/Services";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -11,6 +10,7 @@ import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import MyProfileAndReviews from "../pages/MyProfileAndReviews/MyProfileAndReviews";
 import PrivateRoute from "./PrivateRoute";
 import CheckYourInternetConnection from "../pages/CheckYourInternertConnection/CheckYourInternetConnection";
+import Blogs from "../pages/Blogs/Blogs";
 
 export const routes = createBrowserRouter([
     {
@@ -44,8 +44,8 @@ export const routes = createBrowserRouter([
 
             },
             {
-                path: '/blog',
-                element: <Blog></Blog>
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
             {
                 path: '/my-profile-and-reviews',

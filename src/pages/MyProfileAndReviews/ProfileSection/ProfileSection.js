@@ -3,13 +3,24 @@ import { FaEdit, FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import './ProfileSection.css';
 import EditProfileModal from './EditProfileModal/EditProfileModal';
+import toast from 'react-hot-toast';
 
 const ProfileSection = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, verifyEmail } = useContext(AuthContext)
     console.log(user?.photoURL)
 
     const [editUserProfile, setEditUserProfile] = useState(false);
+
+    const handleVerifyEmail = () => {
+        verifyEmail()
+            .then(() => {
+                alert('Please check your Email')
+            })
+            .catch(() => {
+                toast.error('Something Went Wrong')
+            })
+    }
 
     return (
         <div className='section profile-section'>
@@ -47,7 +58,13 @@ const ProfileSection = () => {
             <div className='profile-div'>
                 <p>Email : </p>
                 <h3 className='email'>{user?.email}</h3>
-                <p className='cursor-pointer-underline-on-hover' style={{ color: 'rgb(1,101,1)' }}>Verify Email</p>
+                {
+                    user?.emailVerified ?
+                        <p style={{ color: 'rgb(1,101,1)' }}>Verified</p>
+                        :
+                        <p onClick={handleVerifyEmail} className='cursor-pointer-underline-on-hover' style={{ color: 'rgb(1,101,1)' }}>Verify Email</p>
+                }
+
             </div>
 
             {
