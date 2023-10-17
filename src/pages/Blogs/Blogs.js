@@ -3,6 +3,8 @@ import './Blogs.css';
 
 import Blog from './Blog/Blog';
 import { blogsData } from '../../data/blogsData';
+import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
 
 const Blogs = () => {
 
@@ -10,11 +12,18 @@ const Blogs = () => {
 
     return (
         <div className='section'>
-            <h1 className='section-heading'>Blogs</h1>
 
-            {
-                blogs.map(blog => <Blog key={blog.id} blog={blog}></Blog>)
-            }
+            <div>
+                {
+                    blogs.map(blog => <Blog key={blog.id} blog={blog}></Blog>)
+                }
+            </div>
+
+
+            <Link style={{ marginTop: '10%' }} className='show-all-services-link' to='/services'>
+                <p>Show All Services</p>
+                <FaArrowRight></FaArrowRight>
+            </Link>
         </div>
     );
 };

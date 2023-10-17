@@ -1,0 +1,15 @@
+.blogs-banner {
+    width: 100vw;
+    height: 75vh;
+    background: url(../../../../../assets/images/blogs/blogs-banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width:960px) {
+    .blogs-banner {
+        height: 40vh;
+        background-size: contain;
+    }
+}

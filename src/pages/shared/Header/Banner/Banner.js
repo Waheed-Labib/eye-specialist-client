@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import HomeBanner from './HomeBanner/HomeBanner';
 import ServicesBanner from './ServicesBanner/ServicesBanner';
 import AddServiceBanner from './AddServiceBanner/AddServiceBanner';
+import BlogsBanner from './BlogsBanner/BlogsBanner';
 
 const Banner = () => {
 
@@ -16,6 +17,7 @@ const Banner = () => {
     if (page === '/') return <HomeBanner></HomeBanner>
     if (page === '/services') return <ServicesBanner></ServicesBanner>
     if (page === '/add-service') return <AddServiceBanner></AddServiceBanner>
+    if (page === '/blogs') return <BlogsBanner></BlogsBanner>
 };
 
 export default Banner;
