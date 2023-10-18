@@ -2,3 +2,18 @@
     text-align: justify;
     margin-bottom: 10%;
 }
+
+.blog-article {
+    padding: 5%;
+    /* border: 1px solid rgb(113, 199, 113); */
+    border-radius: 10px;
+    background-color: rgb(240, 240, 240);
+}
+
+.blog-article {
+    cursor: pointer;
+}
+
+.blog-article:hover .green-link {
+    text-decoration: underline;
+}

@@ -15,16 +15,20 @@ const Blog = ({ blog }) => {
 
             {
                 showFull ?
-                    <div style={{ border: '1px solid rgb(113,199,113)', borderRadius: '10px', padding: '5%' }}>
+                    <div onClick={() => setShowFull(false)}
+                        className='blog-article'>
                         {
                             paragraphs.map(paragraph => <p key={paragraphs.indexOf(paragraph)}>{paragraph}</p>)
                         }
-                        <p onClick={() => setShowFull(false)} className='green-link link-without-underline'>Show Less</p>
+                        <p className='green-link'>Show Less</p>
                     </div>
                     :
-                    <div style={{ border: '1px solid rgb(113,199,113)', borderRadius: '10px', padding: '5%' }}>
+                    <div
+                        onClick={() => setShowFull(true)}
+
+                        className='blog-article'>
                         <p>{blog.article.substr(0, 200)}...</p>
-                        <p onClick={() => setShowFull(true)} className='green-link link-without-underline'>Show Full</p>
+                        <p className='green-link'>Show Full</p>
                     </div>
             }
 
