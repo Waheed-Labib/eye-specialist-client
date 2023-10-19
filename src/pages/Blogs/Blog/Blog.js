@@ -20,7 +20,7 @@ const Blog = ({ blog }) => {
                         {
                             paragraphs.map(paragraph => <p key={paragraphs.indexOf(paragraph)}>{paragraph}</p>)
                         }
-                        <p className='green-link'>Show Less</p>
+                        <p className='blog-link'>Show Less</p>
                     </div>
                     :
                     <div
@@ -28,7 +28,7 @@ const Blog = ({ blog }) => {
 
                         className='blog-article'>
                         <p>{blog.article.substr(0, 200)}...</p>
-                        <p className='green-link'>Show Full</p>
+                        <p className='blog-link'>Show Full</p>
                     </div>
             }
 

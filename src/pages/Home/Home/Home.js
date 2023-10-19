@@ -7,6 +7,7 @@ import { FaArrowRight } from 'react-icons/fa6';
 import Loading from '../../shared/Loading/Loading';
 import ShowAllServicesLink from '../../shared/ShowAllServicesLink/ShowAllServicesLink';
 import toast from 'react-hot-toast';
+import PatientCount from './PatientCount/PatientCount';
 
 const Home = () => {
 
@@ -25,9 +26,10 @@ const Home = () => {
         <div>
             <div className='home-page-services'>
                 <ServicesSection services={services} dataNotFound={dataNotFound}></ServicesSection>
-
                 <ShowAllServicesLink></ShowAllServicesLink>
             </div>
+
+            <PatientCount></PatientCount>
         </div>
     );
 };
