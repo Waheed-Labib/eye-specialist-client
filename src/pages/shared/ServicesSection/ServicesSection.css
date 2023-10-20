@@ -3,8 +3,18 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 45px;
+    animation: move 2s linear 0s 1;
 }
 
+@keyframes move {
+    0% {
+        margin-left: 100px;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
 
 
 @media screen and (max-width: 1124px) {

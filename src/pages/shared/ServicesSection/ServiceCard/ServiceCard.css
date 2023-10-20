@@ -7,17 +7,7 @@
     width: 325px;
     box-shadow: 4px 4px 4px rgb(1, 101, 1);
     background-color: white;
-    animation: move 1s linear 0s 1;
-}
 
-@keyframes move {
-    0% {
-        margin-left: 25px;
-    }
-
-    100% {
-        margin-left: 0;
-    }
 }
 
 .service-card:hover {
