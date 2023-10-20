@@ -17,14 +17,17 @@
 }
 
 
+
 @media screen and (max-width: 1124px) {
     .services {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 @media screen and (max-width: 740px) {
     .services {
         grid-template-columns: repeat(1, 1fr);
     }
+
 }

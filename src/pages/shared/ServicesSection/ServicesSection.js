@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ServiceCard from './ServiceCard/ServiceCard';
 import './ServicesSection.css'
 import Loading from '../Loading/Loading';
@@ -6,9 +6,15 @@ import { useInView } from 'react-intersection-observer';
 
 const ServicesSection = ({ services, dataNotFound, serviceLoading }) => {
 
+    const [showServices, setShowServices] = useState(false);
+
     const { ref, inView } = useInView({
         threshold: 0
     });
+
+    useEffect(() => {
+        if (inView) setShowServices(true);
+    }, [inView])
 
     return (
         <div inView={inView}>
@@ -28,12 +34,14 @@ const ServicesSection = ({ services, dataNotFound, serviceLoading }) => {
                                     :
                                     <>
                                         {
-                                            inView && <div className='services'>
+                                            showServices &&
+                                            <div className='services'>
                                                 {
 
                                                     services.map(service => <ServiceCard key={service?._id} service={service}></ServiceCard>)
                                                 }
                                             </div>
+
                                         }
                                     </>
 

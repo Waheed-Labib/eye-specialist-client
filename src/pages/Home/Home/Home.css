@@ -1,3 +1,9 @@
+.home-page-sections {
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+}
+
 .home-page-services {
     position: relative;
 }
@@ -50,6 +56,12 @@
 
 }
 
+@media screen and (max-width:1124px) {
+    .home-page-sections {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
 
 
 /* 740 */
