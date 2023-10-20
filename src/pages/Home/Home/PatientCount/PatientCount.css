@@ -1,8 +1,10 @@
 .patient-count {
-    margin-top: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
     height: 50vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 1%;
     align-items: center;
     color: white;
 }
@@ -13,8 +15,9 @@
     background-position: center;
     text-align: center;
     width: 45%;
+    height: 80%;
     border-radius: 12px;
-    padding-bottom: 2.5%;
+    padding-top: 2.5%;
 }
 
 .patient-count h1 {
