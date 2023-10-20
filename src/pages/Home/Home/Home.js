@@ -13,19 +13,28 @@ const Home = () => {
 
     const [services, setServices] = useState([]);
 
+    const [serviceLoading, setServiceLoading] = useState(false)
     const [dataNotFound, setDataNotFound] = useState(false);
 
     useEffect(() => {
+        setServiceLoading(true);
+
         fetch('https://eye-specialist-server.vercel.app/services?limit=3')
             .then(res => res.json())
-            .then(data => setServices(data))
-            .catch(() => setDataNotFound(true))
+            .then(data => {
+                setServices(data)
+                setServiceLoading(false)
+            })
+            .catch(() => {
+                setDataNotFound(true)
+                setServiceLoading(false)
+            })
     }, [])
 
     return (
         <div>
             <div className='home-page-services'>
-                <ServicesSection services={services} dataNotFound={dataNotFound}></ServicesSection>
+                <ServicesSection services={services} serviceLoading={serviceLoading} dataNotFound={dataNotFound}></ServicesSection>
                 <ShowAllServicesLink></ShowAllServicesLink>
             </div>
 

@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './ServiceCard.css'
-import { FaStar } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import { Overlay } from 'react-bootstrap';
 import ShowRating from '../../../ServiceDetails/ShowRating/ShowRating';
 
 const ServiceCard = ({ service }) => {

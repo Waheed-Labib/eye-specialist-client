@@ -33,15 +33,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <Services></Services>,
-                loader: () => fetch('https://eye-specialist-server.vercel.app/services'),
+                element: <Services></Services>
 
             },
             {
                 path: '/service-details/:id',
-                element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`https://eye-specialist-server.vercel.app/services/${params.id}`),
-
+                element: <ServiceDetails></ServiceDetails>
             },
             {
                 path: '/blogs',

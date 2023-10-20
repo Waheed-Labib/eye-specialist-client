@@ -1,17 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ServiceDetails.css';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import ServiceDetailsSection from './ServiceDetailsSection/ServiceDetailsSection';
 import RateAndReview from './ServiceDetailsSection/RateAndReview/RateAndReview';
 import RatingsAndReviews from './ServiceDetailsSection/RatingsAndReviews/RatingsAndReviews';
 import { FaArrowRight } from 'react-icons/fa';
 import Loading from '../shared/Loading/Loading';
+import CheckYourInternetConnection from '../CheckYourInternertConnection/CheckYourInternetConnection';
 
 const ServiceDetails = () => {
 
-    const service = useLoaderData();
-    const [reviews, setReviews] = useState([])
+    const [service, setService] = useState(null);
+    const [reviews, setReviews] = useState([]);
+    const [dataNotFound, setDataNotFound] = useState(false);
 
+    const location = useLocation();
+    const serviceId = location.pathname.split('/')[2];
+
+    useEffect(() => {
+        fetch(`https://eye-specialist-server.vercel.app/services/${serviceId}`)
+            .then(res => res.json())
+            .then(data => {
+                setService(data)
+            })
+            .catch(() => setDataNotFound(true))
+    }, [serviceId])
+
+    if (dataNotFound) return <CheckYourInternetConnection></CheckYourInternetConnection>
     if (!service) return <Loading></Loading>
 
     return (

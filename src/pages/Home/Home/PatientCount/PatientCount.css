@@ -1,31 +1,43 @@
 .patient-count {
+    margin-top: 10%;
+    height: 50vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+}
+
+.patient-count div {
     background: url(../../../../assets/images/home/patient-count/patient-count-bg.jpg);
     background-size: cover;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
-    height: 50vh;
-    border-radius: 18px;
-    gap: 5%;
+    text-align: center;
+    width: 45%;
+    border-radius: 12px;
+    padding-bottom: 2.5%;
 }
 
 .patient-count h1 {
-    font-size: 3.5rem;
-    color: white;
+    font-size: 4rem;
+    margin-bottom: 0;
+    color: aliceblue;
 }
 
 .patient-count p {
-    font-size: 1.8rem;
-    color: white;
+    font-size: 1.5rem;
+    color: yellow;
 }
 
 @media screen and (max-width:768px) {
     .patient-count {
-        flex-direction: column-reverse;
         margin-top: 30%;
-        padding-top: 8%;
-        padding-bottom: 8%;
+        height: 75vh;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .patient-count div {
+        width: 100%;
     }
 }

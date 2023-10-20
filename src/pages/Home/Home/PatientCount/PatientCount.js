@@ -1,13 +1,63 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './PatientCount.css'
+import { useInView } from 'react-intersection-observer';
 
 const PatientCount = () => {
-    return (
-        <div className='patient-count'>
-            <p>People Cured Till Now</p>
 
-            <div style={{ height: '250px', width: '250px', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1px dashed white', borderRadius: '50%' }}>
-                <h1>12000+</h1>
+    const { ref, inView } = useInView({
+        threshold: 0
+    });
+
+    const [curedNumber, setCuredNumber] = useState(0);
+    const [underTreatmentNumber, setUnderTreatmentNumber] = useState(0);
+
+    const curedNumberRef = useRef();
+    const underTreatmentNumberRef = useRef();
+
+    const getCuredNumber = () => {
+        clearInterval(curedNumberRef.current)
+        curedNumberRef.current = setInterval(() => {
+            if (curedNumber < 12000)
+                setCuredNumber(curedNumber + 200)
+            else pauseCuredNumber();
+        }, 10);
+    }
+
+    const getUnderTreatmentNumber = () => {
+        clearInterval(underTreatmentNumberRef.current)
+        underTreatmentNumberRef.current = setInterval(() => {
+            if (underTreatmentNumber < 250)
+                setUnderTreatmentNumber(underTreatmentNumber + 5)
+            else pauseUnderTreatmentNumber();
+        }, 20);
+    }
+
+    const pauseCuredNumber = () => {
+        clearInterval(curedNumber.current);
+    }
+
+    const pauseUnderTreatmentNumber = () => {
+        clearInterval(underTreatmentNumber.current);
+    }
+
+    if (inView) {
+        getCuredNumber();
+        getUnderTreatmentNumber();
+    }
+
+
+    return (
+        <div inView={inView}>
+            <div ref={ref} className='patient-count'>
+                <div>
+                    <h1>{curedNumber}+</h1>
+                    <p>People Cured</p>
+                </div>
+
+                <div>
+                    <h1>{underTreatmentNumber}+</h1>
+                    <p>Under Treatment</p>
+                </div>
             </div>
         </div>
     );
