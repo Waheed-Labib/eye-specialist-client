@@ -20,7 +20,7 @@ const PatientCount = () => {
             if (curedNumber < 12000)
                 setCuredNumber(curedNumber + 200)
             else pauseCuredNumber();
-        }, 10);
+        }, 50);
     }
 
     const getUnderTreatmentNumber = () => {
@@ -29,7 +29,7 @@ const PatientCount = () => {
             if (underTreatmentNumber < 250)
                 setUnderTreatmentNumber(underTreatmentNumber + 5)
             else pauseUnderTreatmentNumber();
-        }, 20);
+        }, 50);
     }
 
     const pauseCuredNumber = () => {
