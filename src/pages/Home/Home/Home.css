@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding: 5%;
+    margin-top: 10%;
 }
 
 .home-page-services {
@@ -69,6 +70,10 @@
     .show-all-link {
         margin-top: 5%;
         right: 50%;
+    }
+
+    .home-page-sections {
+        margin-top: 25%;
     }
 }
 

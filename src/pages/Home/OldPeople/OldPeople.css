@@ -24,3 +24,9 @@
         width: 100%;
     }
 }
+
+@media screen and (max-width:768px) {
+    .home-page-section div {
+        font-size: 1.5rem;
+    }
+}
