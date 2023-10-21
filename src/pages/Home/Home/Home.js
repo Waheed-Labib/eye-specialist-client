@@ -16,7 +16,7 @@ const Home = () => {
     useEffect(() => {
         setServiceLoading(true);
 
-        fetch('https://eye-specialist-server.vercel.app/services?limit=3')
+        fetch('https://eye-specialist-server.vercel.app/services?page=0&size=3')
             .then(res => res.json())
             .then(data => {
                 setServices(data)

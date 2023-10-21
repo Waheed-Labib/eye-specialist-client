@@ -3,6 +3,7 @@ import './Services.css'
 import { useLoaderData } from 'react-router-dom';
 import ServicesSection from '../shared/ServicesSection/ServicesSection';
 import AddNewServiceLink from '../shared/AddNewServiceLink/AddNewServiceLink';
+import ServicesPagination from './ServicesPagination/ServicesPagination';
 
 const Services = () => {
 
@@ -28,6 +29,7 @@ const Services = () => {
     return (
         <div>
             <ServicesSection services={services} serviceLoading={serviceLoading} dataNotFound={dataNotFound}></ServicesSection>
+            <ServicesPagination></ServicesPagination>
             <AddNewServiceLink></AddNewServiceLink>
         </div>
 
