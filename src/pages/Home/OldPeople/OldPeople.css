@@ -29,14 +29,17 @@
 
 @keyframes change-bg-animation {
     0% {
+        border: 1px solid rgb(113, 199, 113);
         background-color: white;
     }
 
     50% {
-        background-color: rgba(1, 79, 1, 0.5);
+        border: 1px solid white;
+        background-color: rgb(200, 200, 200);
     }
 
     100% {
+        border: 1px solid rgb(113, 199, 113);
         background-color: white;
     }
 }
