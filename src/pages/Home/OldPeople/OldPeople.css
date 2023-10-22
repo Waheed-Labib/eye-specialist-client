@@ -19,6 +19,28 @@
     border-radius: 15px;
 }
 
+.discount {
+    animation: change-bg-animation 7s ease-in 0s infinite;
+}
+
+.old-people {
+    animation: change-bg-animation 7s ease-in 5s infinite;
+}
+
+@keyframes change-bg-animation {
+    0% {
+        background-color: white;
+    }
+
+    50% {
+        background-color: rgba(113, 199, 113, 0.5);
+    }
+
+    100% {
+        background-color: white;
+    }
+}
+
 @media screen and (max-width:1124px) {
     .home-page-section {
         width: 100%;

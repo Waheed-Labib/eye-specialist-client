@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Services.css'
-import { useLoaderData } from 'react-router-dom';
+import './Services.css';
 import ServicesSection from '../shared/ServicesSection/ServicesSection';
 import AddNewServiceLink from '../shared/AddNewServiceLink/AddNewServiceLink';
 import ServicesPagination from './ServicesPagination/ServicesPagination';
