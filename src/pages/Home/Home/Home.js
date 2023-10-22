@@ -36,12 +36,12 @@ const Home = () => {
                 <ShowAllServicesLink></ShowAllServicesLink>
             </div>
 
+            <PatientCount></PatientCount>
+
             <div className='home-page-sections'>
                 <Discount></Discount>
                 <OldPeople></OldPeople>
             </div>
-
-            <PatientCount></PatientCount>
 
         </div>
     );

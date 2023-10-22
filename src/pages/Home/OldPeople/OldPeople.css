@@ -20,11 +20,11 @@
 }
 
 .discount {
-    animation: change-bg-animation 7s ease-in 0s infinite;
+    animation: change-bg-animation 8s ease-in 0s infinite;
 }
 
 .old-people {
-    animation: change-bg-animation 7s ease-in 5s infinite;
+    animation: change-bg-animation 8s ease-in 6s infinite;
 }
 
 @keyframes change-bg-animation {
