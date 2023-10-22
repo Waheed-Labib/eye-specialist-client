@@ -1,0 +1,18 @@
+.add-service-link {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+    color: rgb(1, 101, 1);
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: 0.4s;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.add-service-link:hover {
+    font-size: 1.35rem;
+    text-decoration: underline;
+}

@@ -19,7 +19,7 @@ const Home = () => {
         fetch('https://eye-specialist-server.vercel.app/services?page=0&size=3')
             .then(res => res.json())
             .then(data => {
-                setServices(data)
+                setServices(data.services)
                 setServiceLoading(false)
             })
             .catch(() => {

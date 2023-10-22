@@ -1,0 +1,15 @@
+.pagination-btn {
+    padding-inline: 15px;
+    background-color: white;
+    border: 1px solid rgb(1, 101, 1);
+    color: rgb(1, 101, 1);
+    transition: 0.4s;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    padding-top: 5px;
+}
+
+.pagination-btn:hover {
+    background-color: rgb(1, 101, 1);
+    color: white;
+}
