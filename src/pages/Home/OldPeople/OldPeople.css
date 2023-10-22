@@ -28,17 +28,17 @@
 
 @keyframes change-bg-animation {
     0% {
-        border: 2px solid rgb(1, 101, 1);
+        border: 3px solid rgb(1, 101, 1);
         background-color: white;
     }
 
     50% {
-        border: 2px solid white;
+        border: 3px solid white;
         background-color: rgb(200, 200, 200);
     }
 
     100% {
-        border: 2px solid rgb(1, 101, 1);
+        border: 3px solid rgb(1, 101, 1);
         background-color: white;
     }
 }
