@@ -15,31 +15,30 @@
     gap: 5%;
     width: 45%;
     padding: 2%;
-    border: 1px solid rgb(113, 199, 113);
     border-radius: 15px;
 }
 
 .discount {
-    animation: change-bg-animation 8s ease-in 0s infinite;
+    animation: change-bg-animation 10s ease-in 0s infinite;
 }
 
 .old-people {
-    animation: change-bg-animation 8s ease-in 4s infinite;
+    animation: change-bg-animation 10s ease-in 5s infinite;
 }
 
 @keyframes change-bg-animation {
     0% {
-        border: 1px solid rgb(113, 199, 113);
+        border: 2px solid rgb(1, 101, 1);
         background-color: white;
     }
 
     50% {
-        border: 1px solid white;
+        border: 2px solid white;
         background-color: rgb(200, 200, 200);
     }
 
     100% {
-        border: 1px solid rgb(113, 199, 113);
+        border: 2px solid rgb(1, 101, 1);
         background-color: white;
     }
 }
