@@ -24,7 +24,7 @@
 }
 
 .old-people {
-    animation: change-bg-animation 8s ease-in 6s infinite;
+    animation: change-bg-animation 8s ease-in 4s infinite;
 }
 
 @keyframes change-bg-animation {
@@ -33,7 +33,7 @@
     }
 
     50% {
-        background-color: rgba(113, 199, 113, 0.5);
+        background-color: rgba(1, 79, 1, 0.5);
     }
 
     100% {
