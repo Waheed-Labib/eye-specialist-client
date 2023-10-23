@@ -1,8 +1,12 @@
 import React from 'react';
 import './CheckYourInternetConnection.css';
 import oops from '../../assets/images/404/jashim-min.jpg'
+import useTitle from '../../hooks/useTitle';
 
 const CheckYourInternetConnection = () => {
+
+    useTitle('Error')
+
     return (
         <div className='no-internet'>
             <img src={oops} alt=''></img>

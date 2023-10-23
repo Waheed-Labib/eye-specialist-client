@@ -5,9 +5,12 @@ import toast from 'react-hot-toast';
 import UploadServiceImage from './UploadServiceImage/UploadServiceImage';
 import { Navigate } from 'react-router-dom';
 import Loading from '../shared/Loading/Loading';
+import useTitle from '../../hooks/useTitle';
 
 
 const AddService = () => {
+
+    useTitle('Add Service');
 
     const [photoUrl, setPhotoURL] = useState('');
     const [isAdded, setIsAdded] = useState(false);

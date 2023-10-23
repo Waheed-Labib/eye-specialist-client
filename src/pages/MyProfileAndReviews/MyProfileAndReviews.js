@@ -4,8 +4,11 @@ import ProfileSection from './ProfileSection/ProfileSection';
 import MyReviews from './MyReviews/MyReviews';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import useTitle from '../../hooks/useTitle';
 
 const MyProfileAndReviews = () => {
+
+    useTitle('My Reviews & Profile')
 
     return (
         <div className='my-reviews-and-profile-page-container'>

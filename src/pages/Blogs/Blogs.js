@@ -5,8 +5,11 @@ import Blog from './Blog/Blog';
 import { blogsData } from '../../data/blogsData';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import useTitle from '../../hooks/useTitle';
 
 const Blogs = () => {
+
+    useTitle('Blogs')
 
     const blogs = blogsData;
 

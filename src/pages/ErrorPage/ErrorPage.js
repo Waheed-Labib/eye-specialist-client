@@ -1,13 +1,12 @@
 import React from 'react';
 import './ErrorPage.css'
 import error from '../../assets/images/404/404.png'
-import { Link, Navigate } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa6';
-import Header from '../shared/Header/Header/Header';
-import Footer from '../shared/Footer/Footer';
-import AppointmentButton from '../shared/Buttons/AppointmentButton/AppointmentButton';
+import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const ErrorPage = () => {
+
+    useTitle('404')
 
     return (
         <div>

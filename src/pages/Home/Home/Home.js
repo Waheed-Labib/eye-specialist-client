@@ -5,8 +5,11 @@ import ShowAllServicesLink from '../../shared/ShowAllServicesLink/ShowAllService
 import PatientCount from './PatientCount/PatientCount';
 import OldPeople from '../OldPeople/OldPeople';
 import Discount from '../Discount/Discount';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
+
+    useTitle('Home')
 
     const [services, setServices] = useState([]);
 

@@ -30,7 +30,7 @@ const ServicesPagination = ({ page, setPage, dataCount }) => {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', gap: '25px', marginTop: '5%', marginBottom: '7.5%' }}>
-            <button onClick={handleGoToPreviousPage} className={`${page !== 1 ? 'pagination-btn' : 'disabled-pagination-btn'}`}>
+            <button onClick={handleGoToPreviousPage} className={`${page > 1 ? 'pagination-btn' : 'disabled-pagination-btn'}`}>
                 <FaAngleLeft></FaAngleLeft>
             </button>
 
@@ -40,7 +40,7 @@ const ServicesPagination = ({ page, setPage, dataCount }) => {
                 <span style={{ fontSize: '1.1rem', fontWeight: '600' }}>{pageCount}</span>
             </p>
 
-            <button onClick={handleGoToNextPage} className={`${page !== pageCount ? 'pagination-btn' : 'disabled-pagination-btn'}`}>
+            <button onClick={handleGoToNextPage} className={`${page < pageCount ? 'pagination-btn' : 'disabled-pagination-btn'}`}>
                 <FaAngleRight></FaAngleRight>
             </button>
         </div>

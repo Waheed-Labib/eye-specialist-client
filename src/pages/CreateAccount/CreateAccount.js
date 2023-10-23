@@ -8,8 +8,11 @@ import { toast } from 'react-hot-toast';
 import SubmitButton from '../shared/Buttons/SubmitButton/SubmitButton';
 import GoogleButton from '../shared/Buttons/GoogleButton/GoogleButton';
 import UploadUserImage from './UploadUserImage/UploadUserImage';
+import useTitle from '../../hooks/useTitle';
 
 const CreateAccount = () => {
+
+    useTitle('Create Account')
 
     const [uploadUserImageOpen, setUploadUserImageOpen] = useState(false);
 

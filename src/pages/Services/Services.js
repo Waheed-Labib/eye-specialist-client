@@ -3,8 +3,11 @@ import './Services.css';
 import ServicesSection from '../shared/ServicesSection/ServicesSection';
 import AddNewServiceLink from '../shared/AddNewServiceLink/AddNewServiceLink';
 import ServicesPagination from './ServicesPagination/ServicesPagination';
+import useTitle from '../../hooks/useTitle';
 
 const Services = () => {
+
+    useTitle(`Services`)
 
     const [serviceLoading, setServiceLoading] = useState(false);
     const [services, setServices] = useState([]);

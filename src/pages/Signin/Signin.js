@@ -7,8 +7,11 @@ import SubmitButton from '../shared/Buttons/SubmitButton/SubmitButton';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
 import GoogleButton from '../shared/Buttons/GoogleButton/GoogleButton';
+import useTitle from '../../hooks/useTitle';
 
 const Signin = () => {
+
+    useTitle('Sign in')
 
     const navigate = useNavigate();
     const location = useLocation();

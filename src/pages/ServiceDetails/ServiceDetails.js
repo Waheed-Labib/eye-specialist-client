@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import './ServiceDetails.css';
-import { Link, useLoaderData, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ServiceDetailsSection from './ServiceDetailsSection/ServiceDetailsSection';
 import RateAndReview from './ServiceDetailsSection/RateAndReview/RateAndReview';
 import RatingsAndReviews from './ServiceDetailsSection/RatingsAndReviews/RatingsAndReviews';
 import { FaArrowRight } from 'react-icons/fa';
 import Loading from '../shared/Loading/Loading';
 import CheckYourInternetConnection from '../CheckYourInternertConnection/CheckYourInternetConnection';
+import useTitle from '../../hooks/useTitle';
 
 const ServiceDetails = () => {
 
     const [service, setService] = useState(null);
     const [reviews, setReviews] = useState([]);
     const [dataNotFound, setDataNotFound] = useState(false);
+
+    useTitle(`${service?.name} Service Details`)
 
     const location = useLocation();
     const serviceId = location.pathname.split('/')[2];
