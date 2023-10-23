@@ -4,7 +4,6 @@ import { AuthContext } from '../../../../contexts/AuthProvider';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import ReviewModal from './ReviewModal/ReviewModal';
 import RatingStars from './RatingStars/RatingStars';
-import MyReview from '../../../MyProfileAndReviews/MyReviews/MyReview/MyReview';
 
 const RateAndReview = ({ service, reviews, setReviews }) => {
 
@@ -14,8 +13,6 @@ const RateAndReview = ({ service, reviews, setReviews }) => {
     const [selectedStar, setSelectedStar] = useState(null);
     const [reviewModalOpen, setReviewModalOpen] = useState(false);
     const [navigateToLogin, setNavigateToLogin] = useState(false);
-
-    const alreadyReviewed = reviews.find(review => review?.userId === user?.uid);
 
     const handleAddReview = () => {
         // if login, show review modal

@@ -22,7 +22,7 @@ const RatingsAndReviews = ({ service, reviews, setReviews }) => {
                         }
                     </div>
                     :
-                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10%' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10%', marginBottom: '10%' }}>
                         <p style={{ fontSize: '2rem', fontStyle: 'italic' }}>No Reviews were added to this service ..</p>
                     </div>
             }

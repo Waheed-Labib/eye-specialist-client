@@ -25,6 +25,7 @@ const ReviewModal = ({ service, selectedStar, setSelectedStar, reviewModalOpen, 
                     <p>Please give a rating.</p>
                 </div>
             )
+            setAddingReview(false)
             return
         }
 
