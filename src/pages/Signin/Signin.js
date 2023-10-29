@@ -41,11 +41,25 @@ const Signin = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                setUser(result.user)
+                setUser(result.user);
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                fetch('https://eye-specialist-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+
                 toast.success(
                     <p className='toast toast-success'>Hello, {user.displayName} !</p>
                 )
-
                 form.reset()
                 navigate(from, { replace: true })
             })

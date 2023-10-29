@@ -3,7 +3,7 @@ import discount from '../../../assets/images/home/discount/60-off2.webp'
 
 const Discount = () => {
     return (
-        <div className='home-page-section discount'>
+        <div className='home-page-section'>
             <img src={discount} alt=''></img>
             <div>
                 <div>
