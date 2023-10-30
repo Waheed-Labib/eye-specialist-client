@@ -7,12 +7,25 @@ const RatingsAndReviews = ({ service, reviews, setReviews }) => {
     useEffect(() => {
         fetch(`https://eye-specialist-server.vercel.app/reviews/${service?._id}`)
             .then(res => res.json())
-            .then(data => setReviews(data))
+            .then(data => {
+                // reverse the array to get the newest first
+                setReviews(data.slice().reverse())
+            })
     }, [service?._id, setReviews])
 
     return (
         <div className='section ratings-and-reviews-section'>
-            <h1 className='section-heading ratings-and-reviews-section-heading'>Ratings and Reviews</h1>
+            <h1 className='section-heading'>Ratings and Reviews</h1>
+
+            <div className='sort-by'>
+                <p>
+                    <small>Sorted by :</small>
+                </p>
+
+                <p style={{ padding: '5px', borderRadius: '2px', backgroundColor: 'rgb(220,220,220)' }}>
+                    <small>Newest first</small>
+                </p>
+            </div>
 
             {
                 reviews.length ?

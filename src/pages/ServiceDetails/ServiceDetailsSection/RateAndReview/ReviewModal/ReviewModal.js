@@ -31,6 +31,13 @@ const ReviewModal = ({ service, selectedStar, setSelectedStar, reviewModalOpen, 
         const rating = selectedStar;
         const review = event.target.review.value;
 
+        // Create the date in review
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        const formattedDate = day + '-' + month + '-' + year;
+
         // add review and rating to the ratings in database
         const newReview = {
             userId: user?.uid,
@@ -39,7 +46,8 @@ const ReviewModal = ({ service, selectedStar, setSelectedStar, reviewModalOpen, 
             serviceId: service?._id,
             serviceName: service?.name,
             rating: rating,
-            review: review
+            review: review,
+            date: formattedDate
         }
 
         fetch('https://eye-specialist-server.vercel.app/reviews', {
@@ -58,7 +66,7 @@ const ReviewModal = ({ service, selectedStar, setSelectedStar, reviewModalOpen, 
                         </div>)
                 }
 
-                setReviews([...reviews, newReview])
+                setReviews([newReview, ...reviews])
             })
             .catch(() => toast.error(
                 <div className='toast toast-error'>

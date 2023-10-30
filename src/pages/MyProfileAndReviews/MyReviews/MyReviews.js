@@ -35,7 +35,8 @@ const MyReviews = () => {
                 return res.json()
             })
             .then(data => {
-                setMyReviews(data)
+                // reversing the array to get the newest first
+                setMyReviews(data.slice().reverse())
                 setMyReviewsLoading(false)
             })
             .catch(() => setDataNotFound(true))
@@ -43,9 +44,18 @@ const MyReviews = () => {
 
     return (
         <div className='section my-reviews-section'>
-            <h1 style={{ marginBottom: '10%' }} className='section-heading'>
+            <h1 className='section-heading'>
                 <FaStar></FaStar> My Reviews
             </h1>
+            <div className='sort-by'>
+                <p>
+                    <small>Sorted by :</small>
+                </p>
+
+                <p style={{ padding: '5px', borderRadius: '2px', backgroundColor: 'rgb(220,220,220)' }}>
+                    <small>Newest first</small>
+                </p>
+            </div>
 
             {
                 myReviewsLoading ?

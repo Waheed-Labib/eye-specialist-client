@@ -11,7 +11,7 @@ import Loading from '../../../shared/Loading/Loading';
 
 const MyReview = ({ myReview, myReviews, setMyReviews }) => {
 
-    const { serviceId, serviceName, rating, review } = myReview;
+    const { serviceId, serviceName, rating, review, date } = myReview;
 
     const [service, setService] = useState(null)
 
@@ -113,7 +113,7 @@ const MyReview = ({ myReview, myReviews, setMyReviews }) => {
                                 <h2 style={{ color: 'rgb(1,101,1)' }}>{serviceName}</h2>
                             </Link>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <p style={{ color: '#464646' }}>10-01-2021</p>
+                                <p style={{ color: '#464646' }}>{date}</p>
                                 <ShowRating rating={rating} ratingPosition='service-details'></ShowRating>
                             </div>
                             <div style={{ fontSize: '1.1rem' }}>

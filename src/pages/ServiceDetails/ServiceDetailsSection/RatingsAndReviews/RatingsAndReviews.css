@@ -1,9 +1,13 @@
-.ratings-and-reviews-section-heading {
+.sort-by {
+    color: rgb(120, 120, 120);
+    display: flex;
+    gap: 10px;
+    align-items: center;
     margin-bottom: 5%;
 }
 
 @media screen and (max-width:768px) {
-    .ratings-and-reviews-section-heading {
+    .sort-by {
         margin-bottom: 10%;
     }
 }

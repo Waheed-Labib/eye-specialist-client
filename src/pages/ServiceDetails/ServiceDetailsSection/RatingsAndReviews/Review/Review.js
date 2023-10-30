@@ -95,7 +95,7 @@ const Review = ({ review, index }) => {
 
                 <ShowRating rating={review.rating} ratingPosition='review'></ShowRating>
 
-                <p>01-10-2023</p>
+                <p>{review.date}</p>
             </div>
         </div>
     );
