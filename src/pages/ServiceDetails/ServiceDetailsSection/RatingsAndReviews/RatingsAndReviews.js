@@ -8,8 +8,7 @@ const RatingsAndReviews = ({ service, reviews, setReviews }) => {
         fetch(`https://eye-specialist-server.vercel.app/reviews/${service?._id}`)
             .then(res => res.json())
             .then(data => {
-                // reverse the array to get the newest first
-                setReviews(data.slice().reverse())
+                setReviews(data)
             })
     }, [service?._id, setReviews])
 

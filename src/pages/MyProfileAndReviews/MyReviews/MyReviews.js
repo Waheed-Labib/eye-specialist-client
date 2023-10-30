@@ -35,8 +35,8 @@ const MyReviews = () => {
                 return res.json()
             })
             .then(data => {
-                // reversing the array to get the newest first
-                setMyReviews(data.slice().reverse())
+
+                setMyReviews(data)
                 setMyReviewsLoading(false)
             })
             .catch(() => setDataNotFound(true))
