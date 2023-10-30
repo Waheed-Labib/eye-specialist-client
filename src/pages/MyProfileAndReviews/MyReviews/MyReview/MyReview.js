@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ShowRating from '../../../ServiceDetails/ShowRating/ShowRating';
 import { FaEdit } from 'react-icons/fa';
-import { AiOutlineDelete, AiTwotoneDelete } from 'react-icons/ai';
+import { AiOutlineDelete } from 'react-icons/ai';
 import './MyReview.css'
 import EditReview from './EditReview/EditReview';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { updateAvgRating } from '../../../../utilities/UpdateAvgRating';
 import { updateAvgRatingAfterDelete } from '../../../../utilities/UpdateAvgRatingAfterDelete';
 import Loading from '../../../shared/Loading/Loading';
 

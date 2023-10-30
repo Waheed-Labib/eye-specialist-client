@@ -41,33 +41,53 @@ const CreateAccount = () => {
         createAccount(email, password)
             .then(result => {
                 const user = result.user;
-                setUser(user);
 
-                const profile = {
-                    displayName: firstName + ' ' + lastName
+                const currentUser = {
+                    uid: user.uid
                 }
 
-                editProfile(profile)
-                    .then(() => {
+                // get jwt token
+                fetch('https://eye-specialist-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('dr-bean-token', data.token);
 
-                    })
-                    .catch(err => {
-                        console.error(err.message)
-                    })
+                        setUser(user);
 
-                toast.success(
-                    <div style={{ paddingInline: '30px' }} className='toast toast-success'>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                            <p style={{ margin: '0', marginBottom: '5px' }}>Congrats, {firstName} !</p>
+                        const profile = {
+                            displayName: firstName + ' ' + lastName
+                        }
 
-                        </div>
-                        <p style={{ margin: '0' }}>You are a Member Now.</p>
-                    </div>
-                )
+                        editProfile(profile)
+                            .then(() => {
 
-                form.reset();
+                            })
+                            .catch(err => {
+                                console.error(err.message)
+                            })
 
-                setUploadUserImageOpen(true);
+                        toast.success(
+                            <div style={{ paddingInline: '30px' }} className='toast toast-success'>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                                    <p style={{ margin: '0', marginBottom: '5px' }}>Congrats, {firstName} !</p>
+
+                                </div>
+                                <p style={{ margin: '0' }}>You are a Member Now.</p>
+                            </div>
+                        )
+
+                        form.reset();
+
+                        setUploadUserImageOpen(true);
+                    }).catch(err => console.error('JWT error', err))
+
+
 
             })
             .catch(err => {

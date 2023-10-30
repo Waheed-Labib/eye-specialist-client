@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react';
 import './ReviewModal.css'
 import { AuthContext } from '../../../../../contexts/AuthProvider';
-import { FaRegStar, FaStar } from 'react-icons/fa';
 import RatingStars from '../RatingStars/RatingStars';
-import toast, { LoaderIcon } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { countAvgRating } from '../../../../../utilities/CountAvgRating';
 import Loading from '../../../../shared/Loading/Loading';
 

@@ -42,6 +42,7 @@ const AuthProvider = ({ children }) => {
 
     const logOut = () => {
         setLoading(true)
+        localStorage.removeItem('dr-bean-token')
         return signOut(auth)
     }
 

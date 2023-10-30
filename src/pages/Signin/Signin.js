@@ -20,7 +20,6 @@ const Signin = () => {
     const [submitBtnClicked, setSubmitBtnClicked] = useState(false);
 
     const {
-        user,
         loading,
         setUser,
         signIn,
@@ -41,12 +40,12 @@ const Signin = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                setUser(result.user);
 
                 const currentUser = {
-                    email: user.email
+                    uid: user.uid
                 }
 
+                // get jwt token
                 fetch('https://eye-specialist-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
@@ -55,13 +54,22 @@ const Signin = () => {
                     body: JSON.stringify(currentUser)
                 })
                     .then(res => res.json())
-                    .then(data => console.log(data))
+                    .then(data => {
+                        localStorage.setItem('dr-bean-token', data.token);
 
-                toast.success(
-                    <p className='toast toast-success'>Hello, {user.displayName} !</p>
-                )
-                form.reset()
-                navigate(from, { replace: true })
+                        setUser(result.user);
+                        toast.success(
+                            <p className='toast toast-success'>Hello, {user.displayName.split(' ')[0]} !</p>
+                        )
+                        form.reset()
+                        navigate(from, { replace: true })
+                    })
+                    .catch(() => {
+                        toast.error(
+                            <p className='toast toast-error'>Token Not Found From Server.</p>
+                        )
+                    })
+
             })
             .catch(err => {
                 setSubmitBtnClicked(false)

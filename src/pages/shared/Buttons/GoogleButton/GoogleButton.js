@@ -21,15 +21,34 @@ const GoogleButton = () => {
         googleSignIn()
             .then(result => {
                 const user = result.user;
-                setUser(user)
-                toast.success(
-                    <div className='toast toast-success'>
-                        <p>Hello, {user?.displayName}</p>
-                        <p>Successfully signed in with Google</p>
-                    </div>
-                )
 
-                navigate(from, { replace: true })
+                const currentUser = {
+                    uid: user.uid
+                }
+
+                // get jwt token
+                fetch('https://eye-specialist-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('dr-bean-token', data.token);
+
+                        setUser(result.user);
+                        toast.success(
+                            <p className='toast toast-success'>Hello, {user.displayName} !</p>
+                        )
+                        navigate(from, { replace: true })
+                    })
+                    .catch(() => {
+                        toast.error(
+                            <p className='toast toast-error'>Token Not Found From Server.</p>
+                        )
+                    })
             })
             .catch(err => {
                 setGoogleBtnClicked(false)

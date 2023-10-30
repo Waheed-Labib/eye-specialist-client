@@ -9,7 +9,7 @@ import Loading from '../../../../shared/Loading/Loading';
 
 const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews }) => {
 
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     const { serviceId, serviceName, rating, review } = myReview;
 
@@ -57,8 +57,24 @@ const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews 
             .then(data => {
                 if (data.acknowledged === true) {
 
-                    fetch(`https://eye-specialist-server.vercel.app/user-reviews/${user?.uid}`)
-                        .then(res => res.json())
+                    fetch(`https://eye-specialist-server.vercel.app/user-reviews/${user?.uid}`, {
+                        headers: {
+                            authorization: `bearer ${localStorage.getItem('dr-bean-token')}`
+                        }
+                    })
+                        .then(res => {
+                            if (res.status === 401 || res.status === 403) {
+                                toast.error(
+                                    <div className='toast toast-error'>
+                                        <p>Unauthorized Access or Request Timed Out</p>
+                                        <p>If you are an authentic user, Please Login Again.</p>
+                                    </div>
+                                )
+
+                                return logOut()
+                            }
+                            return res.json()
+                        })
                         .then(data => setMyReviews(data))
                         .catch(() => alert('Please Check Your Internet Connection.'))
                 }
