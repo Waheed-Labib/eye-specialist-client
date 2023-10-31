@@ -25,8 +25,8 @@ const MyReviews = () => {
                 if (res.status === 401 || res.status === 403) {
                     toast.error(
                         <div className='toast toast-error'>
-                            <p>Unauthorized Access or Request Timed Out</p>
-                            <p>If you are an authentic user, Please Login Again.</p>
+                            <p>Request Timed Out</p>
+                            <p>Please Login Again.</p>
                         </div>
                     )
 
@@ -35,7 +35,6 @@ const MyReviews = () => {
                 return res.json()
             })
             .then(data => {
-
                 setMyReviews(data)
                 setMyReviewsLoading(false)
             })
@@ -86,9 +85,6 @@ const MyReviews = () => {
                         }
                     </>
             }
-
-
-
 
         </div >
     );
