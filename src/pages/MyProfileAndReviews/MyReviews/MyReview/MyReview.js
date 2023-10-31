@@ -13,6 +13,12 @@ const MyReview = ({ myReview, myReviews, setMyReviews }) => {
 
     const { serviceId, serviceName, rating, review, date } = myReview;
 
+    const reviewYear = date.split('-')[0];
+    const reviewMonth = date.split('-')[1];
+    const reviewDay = date.split('-')[2];
+
+    const reviewDate = reviewDay + '-' + reviewMonth + '-' + reviewYear;
+
     const [service, setService] = useState(null)
 
     useEffect(() => {
@@ -51,6 +57,8 @@ const MyReview = ({ myReview, myReviews, setMyReviews }) => {
                     const updatedMyReviews = myReviews.filter(review => review?._id !== myReview?._id)
 
                     setMyReviews(updatedMyReviews)
+
+                    setDeletingReview(false)
                 }
             })
             .catch(() => toast.error(
@@ -108,7 +116,7 @@ const MyReview = ({ myReview, myReviews, setMyReviews }) => {
                                 <h2 style={{ color: 'rgb(1,101,1)' }}>{serviceName}</h2>
                             </Link>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <p style={{ color: '#464646' }}>{date}</p>
+                                <p style={{ color: '#464646' }}>{reviewDate}</p>
                                 <ShowRating rating={rating} ratingPosition='service-details'></ShowRating>
                             </div>
                             <div style={{ fontSize: '1.1rem' }}>

@@ -144,9 +144,6 @@ const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews 
                                 <button type='submit' className='edit-review-btn update-review-btn'>Update Review</button>
                                 <button className='edit-review-btn discard-review-btn' onClick={() => setEditReview(false)}>Discard Changes</button>
 
-                                <div className='my-review-icons'>
-                                    <AiOutlineDelete className='my-review-icon delete-icon'></AiOutlineDelete>
-                                </div>
                             </div>
                         </>
                 }

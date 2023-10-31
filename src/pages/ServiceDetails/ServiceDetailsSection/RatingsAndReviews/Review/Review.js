@@ -8,6 +8,12 @@ const Review = ({ review, index }) => {
 
     const { user } = useContext(AuthContext);
 
+    const reviewYear = review.date.split('-')[0];
+    const reviewMonth = review.date.split('-')[1];
+    const reviewDay = review.date.split('-')[2];
+
+    const reviewDate = reviewDay + '-' + reviewMonth + '-' + reviewYear;
+
     let isMyReview;
     if (review?.userId === user?.uid) isMyReview = true;
 
@@ -95,7 +101,7 @@ const Review = ({ review, index }) => {
 
                 <ShowRating rating={review.rating} ratingPosition='review'></ShowRating>
 
-                <p>{review.date}</p>
+                <p>{reviewDate}</p>
             </div>
         </div>
     );
