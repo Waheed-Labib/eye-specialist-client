@@ -64,11 +64,6 @@ const MyReview = ({ myReview, myReviews, setMyReviews }) => {
         const updatedRating = updateAvgRatingAfterDelete(myReview?.rating, service?.rating, service?.ratingCount)
 
         const newService = {
-            _id: service?._id,
-            name: service?.name,
-            price: service?.price,
-            description: service?.description,
-            image: service?.image,
             rating: updatedRating,
             ratingCount: service?.ratingCount - 1
         }

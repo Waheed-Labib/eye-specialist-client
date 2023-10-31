@@ -37,11 +37,6 @@ const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews 
 
         // add review and rating to the ratings in database
         const updatedReview = {
-            userId: user?.uid,
-            userName: user?.displayName,
-            userImage: user?.photoURL,
-            serviceId: serviceId,
-            serviceName: serviceName,
             rating: rating,
             review: review
         }
@@ -94,11 +89,6 @@ const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews 
         const updatedRating = updateAvgRating(myReview?.rating, selectedStar, service?.rating, service?.ratingCount);
 
         const newService = {
-            _id: service?._id,
-            name: service?.name,
-            price: service?.price,
-            description: service?.description,
-            image: service?.image,
             rating: updatedRating,
             ratingCount: service?.ratingCount
         }
