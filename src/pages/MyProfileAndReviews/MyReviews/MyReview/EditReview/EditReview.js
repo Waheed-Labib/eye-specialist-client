@@ -1,17 +1,16 @@
 import React, { useContext, useState } from 'react';
 import RatingStars from '../../../../ServiceDetails/ServiceDetailsSection/RateAndReview/RatingStars/RatingStars';
-import { AiOutlineDelete } from 'react-icons/ai';
 import './EditReview.css'
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../../contexts/AuthProvider';
 import { updateAvgRating } from '../../../../../utilities/UpdateAvgRating';
 import Loading from '../../../../shared/Loading/Loading';
 
-const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews }) => {
+const EditReview = ({ service, myReview, reviewDate, setEditReview, myReviews, setMyReviews }) => {
 
     const { user, logOut } = useContext(AuthContext)
 
-    const { serviceId, serviceName, rating, review } = myReview;
+    const { serviceName, rating, review } = myReview;
 
     const [selectedStar, setSelectedStar] = useState(rating);
 
@@ -133,7 +132,7 @@ const EditReview = ({ service, myReview, setEditReview, myReviews, setMyReviews 
                         <>
                             <h2 style={{ color: 'rgb(1,101,1)' }}>{serviceName}</h2>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <p style={{ color: '#464646' }}>10-01-2021</p>
+                                <p style={{ color: '#464646' }}>{reviewDate}</p>
                                 <RatingStars selectedStar={selectedStar} setSelectedStar={setSelectedStar}></RatingStars>
                             </div>
 

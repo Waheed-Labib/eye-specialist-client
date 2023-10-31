@@ -98,7 +98,7 @@ const MyReview = ({ myReview, myReviews, setMyReviews }) => {
             ))
     }
 
-    if (editReview) return <EditReview service={service} setEditReview={setEditReview} myReview={myReview} myReviews={myReviews} setMyReviews={setMyReviews}></EditReview>
+    if (editReview) return <EditReview service={service} setEditReview={setEditReview} myReview={myReview} reviewDate={reviewDate} myReviews={myReviews} setMyReviews={setMyReviews}></EditReview>
 
     return (
         <div className='my-review-container'>
