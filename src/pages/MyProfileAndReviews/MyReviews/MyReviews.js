@@ -25,7 +25,7 @@ const MyReviews = () => {
                 if (res.status === 401 || res.status === 403) {
                     toast.error(
                         <div className='toast toast-error'>
-                            <p>Request Timed Out</p>
+                            <p>Access Denied</p>
                             <p>Please Login Again.</p>
                         </div>
                     )

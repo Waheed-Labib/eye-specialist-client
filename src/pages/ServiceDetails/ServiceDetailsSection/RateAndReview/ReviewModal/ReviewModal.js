@@ -31,12 +31,15 @@ const ReviewModal = ({ service, selectedStar, setSelectedStar, reviewModalOpen, 
         const rating = selectedStar;
         const review = event.target.review.value;
 
-        // Create the date in review
+        // Create the date & time in review
         const today = new Date();
         const day = String(today.getDate()).padStart(2, '0');
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const year = today.getFullYear();
-        const formattedDate = year + '-' + month + '-' + day;
+        const hour = today.getHours();
+        const minute = today.getMinutes();
+        const second = today.getSeconds();
+        const formattedDate = year + '-' + month + '-' + day + '-' + hour + '-' + minute + '-' + second;
 
         // add review and rating to the ratings in database
         const newReview = {
