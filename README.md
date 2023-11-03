@@ -12,6 +12,7 @@
   <li>Upload Photo</li>
   <li>Pagination</li>
   <li>Add Rating</li>
+  <li>Complex stylings, by using only Vanilla CSS</li>
   <li>JSON Web Token for data security</li>
   <li>Other Exciting Features</li>
 </ul>
