@@ -8,7 +8,7 @@
   <li>CRUD Operations</li>
   <li>Firebase Authentication for Create Account, Sign In, Google Sign In</li>
   <li>Conditional rendering based on logged in or out.</li>
-  <li>Firebase Storage</li>
+  <li>Uses Firebase Storage</li>
   <li>Upload Photo</li>
   <li>Pagination</li>
   <li>Add Rating</li>
